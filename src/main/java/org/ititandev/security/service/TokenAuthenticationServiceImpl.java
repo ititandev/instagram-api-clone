@@ -36,7 +36,6 @@ public class TokenAuthenticationServiceImpl implements TokenAuthenticationServic
 		String token = request.getHeader(tokenHandler.HEADER_STRING);
 		
 		if (token != null && token.startsWith(tokenHandler.TOKEN_PREFIX)) {
-			// Parse the token.
 			String user = null;
 			
 			try {

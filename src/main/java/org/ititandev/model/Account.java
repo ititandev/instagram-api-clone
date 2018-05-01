@@ -2,10 +2,18 @@ package org.ititandev.model;
 
 public class Account {
 
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	private String id;
 	private String username;
 	private String password;
-	private boolean enabled;
+	private boolean active;
 
 	public Account() {
 	}
@@ -13,7 +21,7 @@ public class Account {
 	public Account(String username, String password) {
 		this.username = username;
 		this.password = password;
-		this.enabled = true;
+		this.active = true;
 	}
 
 	public String getId() {
@@ -41,11 +49,11 @@ public class Account {
 	}
 
 	public boolean isEnabled() {
-		return enabled;
+		return active;
 	}
 
 	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+		this.active = enabled;
 	}
 
 }

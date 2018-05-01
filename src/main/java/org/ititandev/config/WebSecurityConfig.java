@@ -29,32 +29,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-			// Disable CSRF protection since tokens are immune to it
 			.csrf().disable()
-			// If the user is not authenticated, returns 401
 			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-			// This is a stateless application, disable sessions
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-			// Security policy
 			.authorizeRequests()
-				// Allow anonymous access to "/" path
 				.antMatchers("/").permitAll()
-				// Allow anonymous access to "/login" (only POST requests)
 				.antMatchers(HttpMethod.POST, "/login").permitAll()
-				// Any other request must be authenticated
+				.antMatchers(HttpMethod.POST, "/signup").permitAll()
+				.antMatchers(HttpMethod.GET, "/signup").permitAll()
+				.antMatchers(HttpMethod.GET, "/avatar").permitAll()
 				.anyRequest().authenticated().and()
-			// Custom filter for logging in users at "/login"
 			.addFilterBefore(new JWTLoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
-			// Custom filter for authenticating users using tokens
 			.addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-			// Disable resource caching
 			.headers().cacheControl();
 	}	
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource)
-		.usersByUsernameQuery("select username,password, enabled from user where username=?")
-		.authoritiesByUsernameQuery("select username, role from user where username=?");
+		.usersByUsernameQuery("select username,password, active from user where username=?")
+		.authoritiesByUsernameQuery("select username, \"USER_ROLE\" as role from user where username=?");
+//		.passwordEncoder(new BCryptPasswordEncoder(16));
 	}
 }
