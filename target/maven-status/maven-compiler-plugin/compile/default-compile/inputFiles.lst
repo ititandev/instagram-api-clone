@@ -4,14 +4,15 @@ C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititande
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\service\QuoteServiceImpl.java
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\security\service\TokenAuthenticationServiceImpl.java
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\repository\QuoteRepositoryImpl.java
-C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\controller\QuoteController.java
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\config\DataSourceConfig.java
-C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\controller\HelloController.java
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\config\WebSecurityConfig.java
+C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\controller\SignUpController.java
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\security\JWTAuthenticationEntryPoint.java
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\Application.java
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\model\Account.java
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\security\service\TokenAuthenticationService.java
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\security\TokenHandler.java
+C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\controller\AvatarController.java
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\model\Quote.java
 C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\security\JWTLoginFilter.java
+C:\Users\ITitan\eclipse-workspace\instagram-api-clone\src\main\java\org\ititandev\security\JWTSignUpFilter.java

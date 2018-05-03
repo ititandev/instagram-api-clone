@@ -50,7 +50,7 @@
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
-		    <version>5.1.6</version><!--$NO-MVN-MAN-VER$-->
+		    <version>8.0.11</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -76,7 +76,13 @@
 		<dependency>
 		    <groupId>org.json</groupId>
 		    <artifactId>json</artifactId>
-		    </dependency>
+	    </dependency>
+	    
+	    <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>5.0.5.RELEASE</version><!--$NO-MVN-MAN-VER$-->
+		</dependency>
 	</dependencies>
 
 	<build>

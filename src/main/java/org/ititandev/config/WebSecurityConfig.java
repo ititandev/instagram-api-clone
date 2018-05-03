@@ -36,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/").permitAll()
 				.antMatchers(HttpMethod.POST, "/login").permitAll()
 				.antMatchers(HttpMethod.POST, "/signup").permitAll()
-				.antMatchers(HttpMethod.GET, "/signup").permitAll()
+				//.antMatchers(HttpMethod.GET, "/signup").permitAll()
 				.antMatchers(HttpMethod.GET, "/avatar").permitAll()
 				.anyRequest().authenticated().and()
 			.addFilterBefore(new JWTLoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
@@ -47,8 +47,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource)
-		.usersByUsernameQuery("select username,password, active from user where username=?")
-		.authoritiesByUsernameQuery("select username, \"USER_ROLE\" as role from user where username=?");
+		.usersByUsernameQuery("select username, password, active from account where username=?")
+		.authoritiesByUsernameQuery("select username, \"USER_ROLE\" as role from account where username=?");
 //		.passwordEncoder(new BCryptPasswordEncoder(16));
 	}
 }

@@ -10,19 +10,14 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.IOUtils;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.util.StreamUtils;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class AvatarController {
+public class ImageController {
 
 	// @GetMapping(value = "/avatar/{username}")
 	// //, produces = MediaType.IMAGE_JPEG_VALUE)
@@ -35,8 +30,9 @@ public class AvatarController {
 	//
 	// return username;
 	// }
-	@RequestMapping(value = "/avatar", method = RequestMethod.GET)
-	byte[] downloadImage(HttpServletResponse response) throws IOException {
+	
+	@RequestMapping(value = "/avatar/{username}", method = RequestMethod.GET)
+	byte[] downloadImage(HttpServletResponse response, @PathVariable("username") String username) throws IOException {
 		File f = new File("image.jpg");
 		// System.out.println(f.exists());
 		// ClassPathResource imageFile = new ClassPathResource(f.getCanonicalPath());
@@ -48,9 +44,9 @@ public class AvatarController {
 		response.setHeader("Content-Disposition", "attachment; filename=\"a.jpg\"");
 		InputStream is = new FileInputStream(f.getCanonicalPath());
 		BufferedImage img = ImageIO.read(is);
-		ByteArrayOutputStream bos = new ByteArrayOutputStream();
-		ImageIO.write(img, "jpg", bos);
-		return bos.toByteArray();
+		ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+		ImageIO.write(img, "jpg", byteStream);
+		return byteStream.toByteArray();
 	}
 	// @RestController
 	// @RequestMapping("/image")
