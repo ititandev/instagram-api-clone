@@ -57,11 +57,7 @@ public class TokenAuthenticationServiceImpl implements TokenAuthenticationServic
 			} else {
 				return null;
 			}
-
 		}
-		
 		return null;
-		
 	}
-	
 }

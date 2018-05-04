@@ -10,13 +10,16 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 
+import org.ititandev.config.Config;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/download")
 public class ImageController {
 
 	// @GetMapping(value = "/avatar/{username}")
@@ -30,20 +33,34 @@ public class ImageController {
 	//
 	// return username;
 	// }
-	
-	@RequestMapping(value = "/avatar/{username}", method = RequestMethod.GET)
-	byte[] downloadImage(HttpServletResponse response, @PathVariable("username") String username) throws IOException {
-		File f = new File("image.jpg");
-		// System.out.println(f.exists());
-		// ClassPathResource imageFile = new ClassPathResource(f.getCanonicalPath());
-		// response.setContentType(MediaType.IMAGE_JPEG_VALUE);
-		// response.setHeader("Content-Disposition", "attachment; filename=\"a.jpg\"");
-		// StreamUtils.copy(imageFile.getInputStream(), response.getOutputStream());
-
+	@GetMapping("/photo/{photo_id}")
+	byte[] getPhoto(HttpServletResponse response, @PathVariable("photo_id") String photo_id) throws IOException {
 		response.setContentType(MediaType.IMAGE_JPEG_VALUE);
-		response.setHeader("Content-Disposition", "attachment; filename=\"a.jpg\"");
-		InputStream is = new FileInputStream(f.getCanonicalPath());
-		BufferedImage img = ImageIO.read(is);
+		response.setHeader("Content-Disposition", "attachment; filename=\"" + photo_id + ".jpg\"");
+		InputStream inputStream = new FileInputStream(Config.getConfig("photo.dir") + File.separator + photo_id);
+		BufferedImage img = ImageIO.read(inputStream);
+		ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+		ImageIO.write(img, "jpg", byteStream);
+		return byteStream.toByteArray();
+	}
+
+	@GetMapping("/avatar/{username}")
+	byte[] getAvatar(HttpServletResponse response, @PathVariable("username") String username) throws IOException {
+		response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+		response.setHeader("Content-Disposition", "attachment; filename=\"" + username + ".jpg\"");
+		InputStream inputStream = new FileInputStream(Config.getConfig("avatar.dir") + File.separator + username);
+		BufferedImage img = ImageIO.read(inputStream);
+		ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+		ImageIO.write(img, "jpg", byteStream);
+		return byteStream.toByteArray();
+	}
+
+	@GetMapping("/story/{story_id}")
+	byte[] getStory(HttpServletResponse response, @PathVariable("story_id") String story_id) throws IOException {
+		response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+		response.setHeader("Content-Disposition", "attachment; filename=\"" + story_id + ".jpg\"");
+		InputStream inputStream = new FileInputStream(Config.getConfig("story.dir") + File.separator + story_id);
+		BufferedImage img = ImageIO.read(inputStream);
 		ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
 		ImageIO.write(img, "jpg", byteStream);
 		return byteStream.toByteArray();
