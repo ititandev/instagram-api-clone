@@ -8,6 +8,7 @@ import org.ititandev.model.Account;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class AccountDAO {
+	@SuppressWarnings("unused")
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 

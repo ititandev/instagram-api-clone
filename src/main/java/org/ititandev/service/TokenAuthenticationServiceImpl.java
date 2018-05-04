@@ -1,4 +1,4 @@
-package org.ititandev.security.service;
+package org.ititandev.service;
 
 import static java.util.Collections.emptyList;
 

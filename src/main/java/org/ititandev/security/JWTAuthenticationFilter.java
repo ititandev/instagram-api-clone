@@ -8,8 +8,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.ititandev.security.service.TokenAuthenticationService;
-import org.ititandev.security.service.TokenAuthenticationServiceImpl;
+import org.ititandev.service.TokenAuthenticationService;
+import org.ititandev.service.TokenAuthenticationServiceImpl;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.GenericFilterBean;

@@ -83,6 +83,11 @@
 		    <artifactId>spring-jdbc</artifactId>
 		    <version>5.0.5.RELEASE</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
+	    <dependency>
+	    	<groupId>javax.mail</groupId>
+	    	<artifactId>mail</artifactId>
+	    	<version>1.4</version>
+	    </dependency>
 	</dependencies>
 
 	<build>

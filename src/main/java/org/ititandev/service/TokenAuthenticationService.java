@@ -1,4 +1,4 @@
-package org.ititandev.security.service;
+package org.ititandev.service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.ititandev.model.Account;
-import org.ititandev.security.service.TokenAuthenticationService;
-import org.ititandev.security.service.TokenAuthenticationServiceImpl;
+import org.ititandev.service.TokenAuthenticationService;
+import org.ititandev.service.TokenAuthenticationServiceImpl;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
