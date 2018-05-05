@@ -13,11 +13,12 @@ import javax.mail.internet.MimeMessage;
 import org.ititandev.config.Config;
 
 public class MailService {
-	public static void sendMail(String[] to, String subject, String body, String from, String pass) {
+	public static void sendMail(String _to, String subject, String body, String from, String pass) {
 		if (from == null)
-			Config.getConfig("mail.username");
+			from = Config.getConfig("mail.username");
 		if (pass == null)
-			Config.getConfig("mail.password");
+			pass = Config.getConfig("mail.password");
+		String[] to = {_to};
 		Properties props = System.getProperties();
 		String host = "smtp.gmail.com";
 		props.put("mail.smtp.starttls.enable", "true");

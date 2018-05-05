@@ -15,8 +15,8 @@ public class DataSourceConfig {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.url("jdbc:mysql://127.0.0.1:3306/instagram");
         dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
-        dataSourceBuilder.username("root");
-        dataSourceBuilder.password("");
+        dataSourceBuilder.username(Config.getConfig("mysql.username"));
+        dataSourceBuilder.password(Config.getConfig("mysql.password"));
         return dataSourceBuilder.build();
     }
 }
