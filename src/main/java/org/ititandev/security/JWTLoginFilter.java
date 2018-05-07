@@ -21,36 +21,30 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
-	
+
 	private TokenAuthenticationService tokenAuthenticationService = new TokenAuthenticationServiceImpl();
 
 	public JWTLoginFilter(String url, AuthenticationManager authManager) {
 		super(new AntPathRequestMatcher(url));
 		setAuthenticationManager(authManager);
 	}
-	
+
 	@Override
-	public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res) throws AuthenticationException, IOException, ServletException {
-		
-		// Retrieve username and password from the http request and save them in an Account object.
+	public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res)
+			throws AuthenticationException, IOException, ServletException {
+
 		Account account = new ObjectMapper().readValue(req.getInputStream(), Account.class);
-		
-		// Verify if the correctness of login details.
-		// If correct, the successfulAuthentication() method is executed.
-		return getAuthenticationManager().authenticate(
-				new UsernamePasswordAuthenticationToken(
-						account.getUsername(),
-						account.getPassword(),
-						Collections.emptyList()
-						)
-				);
+
+		return getAuthenticationManager().authenticate(new UsernamePasswordAuthenticationToken(account.getUsername(),
+				account.getPassword(), Collections.emptyList()));
 	}
 
 	@Override
-	protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain, Authentication auth) throws IOException, ServletException {
-		
-		// Pass authenticated user data to the tokenAuthenticationService in order to add a JWT to the http response.
+	protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain,
+			Authentication auth) throws IOException, ServletException {
+
 		tokenAuthenticationService.addAuthentication(res, auth);
+		res.getOutputStream().print("aaaaa");
 	}
 
 }

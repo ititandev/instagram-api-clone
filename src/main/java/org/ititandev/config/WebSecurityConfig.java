@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource)
-		.usersByUsernameQuery("select username, password, active from account where username=?")
+		.usersByUsernameQuery("SELECT username, password, NOT `lock` FROM account WHERE username=?")
 		.authoritiesByUsernameQuery("select username, \"USER_ROLE\" as role from account where username=?");
 //		.passwordEncoder(new BCryptPasswordEncoder(16));
 	}

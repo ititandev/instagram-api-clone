@@ -13,10 +13,21 @@
       <property name = "password" value = ""/>
    </bean>
 
-   <!-- Definition for studentJDBCTemplate bean -->
+   
    <bean id = "AccountDAO" 
       class = "org.ititandev.dao.AccountDAO">
       <property name = "dataSource" ref = "dataSource" />    
    </bean>
-      
+   <bean id = "PhotoDAO" 
+      class = "org.ititandev.dao.PhotoDAO">
+      <property name = "dataSource" ref = "dataSource" />    
+   </bean>   
+   <bean id = "CommentDAO" 
+      class = "org.ititandev.dao.CommentDAO">
+      <property name = "dataSource" ref = "dataSource" />    
+   </bean>   
+<!--    <bean id = "ReplyDAO"  -->
+<!--       class = "org.ititandev.dao.ReplyDAO"> -->
+<!--       <property name = "dataSource" ref = "dataSource" />     -->
+<!--    </bean> -->
 </beans>

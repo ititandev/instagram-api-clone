@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/download")
-public class ImageController {
+public class DownloadController {
 
 	// @GetMapping(value = "/avatar/{username}")
 	// //, produces = MediaType.IMAGE_JPEG_VALUE)
@@ -66,7 +66,7 @@ public class ImageController {
 	}
 	// @RestController
 	// @RequestMapping("/image")
-	// class ImageController {
+	// class DownloadController {
 	//
 	// @RequestMapping(value = "/download", method = RequestMethod.GET)
 	// void downloadImage(HttpServletResponse response){
