@@ -5,6 +5,7 @@ public class Reply {
 	String reply_id;
 	String content;
 	String datetime;
+	String username;
 
 	public String getReply_id() {
 		return reply_id;
@@ -28,5 +29,13 @@ public class Reply {
 
 	public void setDatetime(String datetime) {
 		this.datetime = datetime;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

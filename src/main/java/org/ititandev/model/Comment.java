@@ -3,17 +3,18 @@ package org.ititandev.model;
 import java.util.List;
 
 public class Comment {
-	String comment_id;
+	int comment_id;
 	String content;
 	String datetime;
 	String username;
 	List<Reply> reply;
 
-	public String getComment_id() {
+	
+	public int getComment_id() {
 		return comment_id;
 	}
 
-	public void setComment_id(String comment_id) {
+	public void setComment_id(int comment_id) {
 		this.comment_id = comment_id;
 	}
 
