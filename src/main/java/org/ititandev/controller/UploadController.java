@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("/upload")
 public class UploadController {
 	@PostMapping("/photo")
-	String photo(@RequestParam("file") MultipartFile file, @RequestParam("data") String data)
-			throws JSONException {
+	String photo(@RequestParam("file") MultipartFile file, @RequestParam("data") String data) throws JSONException {
 		JSONObject json = new JSONObject(data);
 		String caption = json.getString("caption");
 		String location = json.getString("location");
@@ -50,10 +48,9 @@ public class UploadController {
 	}
 
 	@PostMapping("/avatar")
-	String avatar(@RequestParam("file") MultipartFile file)
-			throws JSONException {
+	String avatar(@RequestParam("file") MultipartFile file) throws JSONException {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-		
+
 		String filename = "test.jpg";
 		try {
 			byte[] bytes = file.getBytes();
@@ -71,11 +68,11 @@ public class UploadController {
 			return "{\"result\":\"error\"}";
 		}
 	}
+
 	@PostMapping("/story")
-	String story(@RequestParam("file") MultipartFile file)
-			throws JSONException {
+	String story(@RequestParam("file") MultipartFile file) throws JSONException {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-		
+
 		String filename = "test.jpg";
 		try {
 			byte[] bytes = file.getBytes();

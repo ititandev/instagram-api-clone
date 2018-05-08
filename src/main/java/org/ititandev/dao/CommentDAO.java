@@ -20,7 +20,8 @@ public class CommentDAO {
 	
 	public List<Comment> getComment(int photo_id, int start, int limit) {
 		String sql = "SELECT * FROM "
-				+ "(SELECT comment_id, content, datetime, username FROM comment WHERE photo_id = ? "
+				+ "(SELECT comment_id, content, datetime, username, get_avatar(username) AS filename_avatar "
+				+ "FROM comment WHERE photo_id = ? "
 				+ "ORDER BY datetime DESC LIMIT ?, ?) AS temp ORDER BY temp.datetime";
 		return jdbcTemplate.query(sql, new Object[] {photo_id, start, limit}, new CommentMapper());
 	}

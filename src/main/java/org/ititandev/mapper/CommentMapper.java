@@ -13,6 +13,7 @@ public class CommentMapper implements RowMapper<Comment>{
 		comment.setContent(rs.getString("content"));
 		comment.setDatetime(rs.getString("datetime"));
 		comment.setUsername(rs.getString("username"));
+		comment.setFilename_avatar(rs.getString("filename_avatar"));
 		return comment;
 	}
 }

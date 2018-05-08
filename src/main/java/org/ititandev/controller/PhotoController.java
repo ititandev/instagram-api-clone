@@ -23,14 +23,28 @@ public class PhotoController {
 	@GetMapping("/newfeed/{start}/{limit}")
 	public List<Photo> getNewfeed(@PathVariable("start") int start, @PathVariable("limit") int limit) {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-		List<Photo> photo = photoDAO.getPhoto(username, start, limit);
+		List<Photo> photo = photoDAO.getNewfeed(username, start, limit);
 		for (Photo p : photo) {
 			List<Comment> comment = commentDAO.getComment(p.getPhoto_id(), 0, 5);
 			p.setComment(comment);
 		}
 		return photo;
 	}
-
+	
+	@GetMapping("/newfeed/all")
+	public List<Photo> getAll() {
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		List<Photo> photo = photoDAO.getNewfeed(username, 0, 1000);
+		for (Photo p : photo) {
+			List<Comment> comment = commentDAO.getComment(p.getPhoto_id(), 0, 1000);
+			p.setComment(comment);
+			for (Comment c : comment) {
+				c.setReply(replyDAO.getReply(c.getComment_id(), 0, 1000));
+			}
+		}
+		return photo;
+	}
+	
 	@GetMapping("/comment/{photo_id}/{start}/{limit}")
 	public List<Comment> getComment(@PathVariable("photo_id") int photo_id, @PathVariable("start") int start,
 			@PathVariable("limit") int limit) {
@@ -48,17 +62,15 @@ public class PhotoController {
 			return replyDAO.getReply(comment_id, start, limit);
 	}
 	
-	@GetMapping("/newfeed/all")
-	public List<Photo> getAll() {
+	@GetMapping("/like/{photo_id}")
+	public List<String> getLikeUsername(@PathVariable("photo_id") int photo_id) {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-		List<Photo> photo = photoDAO.getPhoto(username, 0, 1000);
-		for (Photo p : photo) {
-			List<Comment> comment = commentDAO.getComment(p.getPhoto_id(), 0, 1000);
-			p.setComment(comment);
-			for (Comment c : comment) {
-				c.setReply(replyDAO.getReply(c.getComment_id(), 0, 1000));
-			}
-		}
-		return photo;
+		if (photoDAO.checkUserToPhoto_id(username, photo_id))
+			return photoDAO.getLikeUsername(photo_id);
+		else
+			return null;
 	}
+	
+//	@PutMapping("/photo/{photo_id}")
+	
 }

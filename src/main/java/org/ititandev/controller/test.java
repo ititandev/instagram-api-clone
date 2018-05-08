@@ -1,16 +1,14 @@
 package org.ititandev.controller;
 
 import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,15 +16,15 @@ import org.springframework.web.multipart.MultipartFile;
 import org.ititandev.Application;
 import org.ititandev.config.Config;
 import org.ititandev.dao.AccountDAO;
+import org.ititandev.dao.PhotoDAO;
 import org.ititandev.model.Account;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 @RestController
 public class test {
 	static AccountDAO accountDAO = Application.context.getBean("AccountDAO", AccountDAO.class);
-
-	@GetMapping("/test")
+	static PhotoDAO photoDAO = Application.context.getBean("PhotoDAO", PhotoDAO.class);
+	
+	@GetMapping("/userlist")
 	public List<Account> test() {
 		return accountDAO.getAll();
 	}
@@ -36,15 +34,9 @@ public class test {
 		return SecurityContextHolder.getContext().getAuthentication().getName();
 	}
 
-	@PostMapping("/request")
-	public String request(HttpServletRequest request) throws JSONException, IOException {
-		StringBuffer buffer = new StringBuffer();
-		String line = null;
-		BufferedReader reader = request.getReader();
-		while ((line = reader.readLine()) != null)
-			buffer.append(line);
-		JSONObject jsonObject = new JSONObject(buffer.toString());
-		return jsonObject.getString("b");
+	@PostMapping("/test/{username1}/{username2}")
+	public Map<String, Object> request(@PathVariable("username1") String username1, @PathVariable("username2") String username2) {
+		return photoDAO.test(username1, username2);
 	}
 
 	@PostMapping("/upload")

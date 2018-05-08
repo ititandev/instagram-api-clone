@@ -20,7 +20,8 @@ public class ReplyDAO {
 
 	public List<Reply> getReply(int comment_id, int start, int limit) {
 		String sql = "SELECT * FROM "
-				+ "(SELECT reply_id, datetime, content, username FROM reply WHERE comment_id = ? "
+				+ "(SELECT reply_id, datetime, content, username, get_avatar(username) AS filename_avatar "
+				+ "FROM reply WHERE comment_id = ? "
 				+ "ORDER BY datetime DESC LIMIT ?, ?) AS temp "
 				+ "ORDER BY temp.datetime";
 		return jdbcTemplate.query(sql, new Object[] {comment_id, start, limit}, new ReplyMapper());

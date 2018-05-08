@@ -10,6 +10,17 @@ public class Photo {
 	String datetime_update;
 	String location;
 	String username;
+	String avatar_filename;
+	int like_num;
+
+	public int getLike_num() {
+		return like_num;
+	}
+
+	public void setLike_num(int like_num) {
+		this.like_num = like_num;
+	}
+
 	List<Comment> comment;
 
 	public List<Comment> getComment() {
@@ -74,6 +85,14 @@ public class Photo {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getAvatar_filename() {
+		return avatar_filename;
+	}
+
+	public void setAvatar_filename(String avatar_filename) {
+		this.avatar_filename = avatar_filename;
 	}
 
 }

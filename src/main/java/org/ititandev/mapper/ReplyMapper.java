@@ -13,6 +13,7 @@ public class ReplyMapper implements RowMapper<Reply>{
 		reply.setContent(rs.getString("content"));
 		reply.setDatetime(rs.getString("datetime"));
 		reply.setUsername(rs.getString("username"));
+		reply.setFilename_avatar(rs.getString("filename_avatar"));
 		return reply;
 	}
 }

@@ -7,9 +7,18 @@ public class Comment {
 	String content;
 	String datetime;
 	String username;
+	String filename_avatar;
+
+	public String getFilename_avatar() {
+		return filename_avatar;
+	}
+
+	public void setFilename_avatar(String filename_avatar) {
+		this.filename_avatar = filename_avatar;
+	}
+
 	List<Reply> reply;
 
-	
 	public int getComment_id() {
 		return comment_id;
 	}

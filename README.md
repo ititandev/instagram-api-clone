@@ -1,7 +1,7 @@
 # instagram-api-clone  
 
 
-### `/login`
+- `/login`
 ```json
 {
   "username": "a",
@@ -13,29 +13,44 @@ Reponse: JWT in Authorization header
 `Authorization: Ins eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI2NjYxODJhMS1jM2RiLTRlZWItYThmMS04Njk1YjVlYjM3YzAiLCJzdWIiOiJhIiwiaWF0IjoxNTI1NDA1NDE5LCJleHAiOjE1MjU0NDg2MTl9.e5_DIjUpbEPVWBszE4YBGXgq3ZARaqUrvDeuLy9dL3exwf59ZXT-_jEoxF2lUVsHqMJo_zN7pvA8utcqCABSBw`
 
 ## Download
-### `/download/photo/{photo_id}`
-### `/download/avatar/{username}`
-### `/download/story/{story_id}`
+- `GET /download/photo/{photo_id}`
+- `GET /download/avatar/{username}`
+- `GET /download/story/{story_id}`
 
 ## Photo
-### `/newfeed/{start}/{limit}`
-### `/comment/{photo_id}/{start}/{limit}`
-### `/reply/{comment_id}/{start}/{limit}`
-### `/newfeed/all`
+- `GET /newfeed/{start}/{limit}`
+- `GET /comment/{photo_id}/{start}/{limit}`
+- `GET /reply/{comment_id}/{start}/{limit}`
+- `GET /newfeed/all`
 
 ## Account
-### `POST /signup`
-### `GET /account`
-### `PUT /account/updateInfo`
-### `PUT /account/updatePassword`
-
-## Upload
-### `upload/photo` or `upload/avatar` or `upload/story`
-### 
+- `POST /signup`
 ```json
 {
-  "file": {file},
+        "username": "usertest",
+        "password": "passwordtest",
+        "email": "email@gmail.com",
+        "name": "Name",
 }
 ```
-
+- `GET /account`
+- `PUT /account/updateInfo`
+```json
+{
+        "username": "usertest",
+        "email": "email@gmail.com",
+        "name": "Name",
+}
+```
+- `PUT /account/updatePassword`
+```json
+{
+        "password": "passwordtest",
+}
+```
+## Upload
+- `POST /photo`
+- `POST /avatar`
+- `POST /story`
+- 
 

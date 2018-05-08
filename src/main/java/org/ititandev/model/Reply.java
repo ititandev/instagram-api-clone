@@ -6,6 +6,7 @@ public class Reply {
 	String content;
 	String datetime;
 	String username;
+	String filename_avatar;
 
 	public String getReply_id() {
 		return reply_id;
@@ -37,5 +38,13 @@ public class Reply {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getFilename_avatar() {
+		return filename_avatar;
+	}
+
+	public void setFilename_avatar(String filename_avatar) {
+		this.filename_avatar = filename_avatar;
 	}
 }
