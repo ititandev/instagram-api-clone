@@ -30,7 +30,8 @@ public class UploadController {
 		photo.setCaption(caption);
 		photo.setLocation(location);
 
-		String filename = photoDAO.insertPhoto(photo);
+		int key = photoDAO.insertPhoto(photo);
+		String filename = key + ".jpg";
 		try {
 			byte[] bytes = file.getBytes();
 			File dir = new File(Config.getConfig("photo.dir"));

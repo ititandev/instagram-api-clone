@@ -84,7 +84,7 @@ public class PhotoController {
 
 	// @PutMapping("/photo/{photo_id}")
 	@PostMapping("/test/{param}")
-	public int test(@PathVariable("param") String param) {
-		return photoDAO.insertPhoto(param);
+	public String test(@PathVariable("param") String param) {
+		return null;
 	}
 }
