@@ -12,15 +12,7 @@ public class Photo {
 	String username;
 	String avatar_filename;
 	int like_num;
-
-	public int getLike_num() {
-		return like_num;
-	}
-
-	public void setLike_num(int like_num) {
-		this.like_num = like_num;
-	}
-
+	int comment_num;
 	List<Comment> comment;
 
 	public List<Comment> getComment() {
@@ -93,6 +85,22 @@ public class Photo {
 
 	public void setAvatar_filename(String avatar_filename) {
 		this.avatar_filename = avatar_filename;
+	}
+
+	public int getLike_num() {
+		return like_num;
+	}
+
+	public void setLike_num(int like_num) {
+		this.like_num = like_num;
+	}
+
+	public int getComment_num() {
+		return comment_num;
+	}
+
+	public void setComment_num(int comment_num) {
+		this.comment_num = comment_num;
 	}
 
 }

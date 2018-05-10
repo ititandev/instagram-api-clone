@@ -16,8 +16,9 @@ public class PhotoMapper implements RowMapper<Photo>{
 		photo.setDatetime_update(rs.getString("datetime_update"));
 		photo.setLocation(rs.getString("location"));
 		photo.setUsername(rs.getString("username"));
-		photo.setAvatar_filename(rs.getString("filename_avatar"));
+		photo.setAvatar_filename(rs.getString("avatar_filename"));
 		photo.setLike_num(rs.getInt("like_num"));
+		photo.setComment_num(rs.getInt("comment_num"));
 		return photo;
 	}
 }

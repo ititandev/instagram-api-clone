@@ -4,7 +4,10 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 
+import org.ititandev.Application;
 import org.ititandev.config.Config;
+import org.ititandev.dao.PhotoDAO;
+import org.ititandev.model.Photo;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,20 +19,18 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 public class UploadController {
-	@PostMapping("/photo")
-	String photo(@RequestParam("file") MultipartFile file, @RequestParam("data") String data) throws JSONException {
-		JSONObject json = new JSONObject(data);
-		String caption = json.getString("caption");
-		String location = json.getString("location");
-		String camera_model = json.getString("camera_model");
-		String fstop = json.getString("fstop");
-		String exposure_time = json.getString("exposure_time");
-		String ISO = json.getString("ISO");
-		String focal_length = json.getString("focal_length");
-		String flash_mode = json.getString("flash_mode");
-		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+	static PhotoDAO photoDAO = Application.context.getBean("PhotoDAO", PhotoDAO.class);
 
-		String filename = "test.jpg";
+	@PostMapping("/photo")
+	String photo(@RequestParam("file") MultipartFile file, @RequestParam("caption") String caption,
+			@RequestParam("location") String location) throws JSONException {
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		Photo photo = new Photo();
+		photo.setUsername(username);
+		photo.setCaption(caption);
+		photo.setLocation(location);
+
+		String filename = photoDAO.insertPhoto(photo);
 		try {
 			byte[] bytes = file.getBytes();
 			File dir = new File(Config.getConfig("photo.dir"));
@@ -90,4 +91,11 @@ public class UploadController {
 			return "{\"result\":\"error\"}";
 		}
 	}
+
+	// String camera_model = json.getString("camera_model");
+	// String fstop = json.getString("fstop");
+	// String exposure_time = json.getString("exposure_time");
+	// String ISO = json.getString("ISO");
+	// String focal_length = json.getString("focal_length");
+	// String flash_mode = json.getString("flash_mode");
 }

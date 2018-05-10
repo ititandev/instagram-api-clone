@@ -14,6 +14,7 @@ public class CommentMapper implements RowMapper<Comment>{
 		comment.setDatetime(rs.getString("datetime"));
 		comment.setUsername(rs.getString("username"));
 		comment.setFilename_avatar(rs.getString("filename_avatar"));
+		comment.setReply_num(rs.getInt("reply_num"));
 		return comment;
 	}
 }

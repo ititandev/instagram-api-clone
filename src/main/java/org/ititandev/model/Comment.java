@@ -8,6 +8,7 @@ public class Comment {
 	String datetime;
 	String username;
 	String filename_avatar;
+	int reply_num;
 
 	public String getFilename_avatar() {
 		return filename_avatar;
@@ -57,5 +58,13 @@ public class Comment {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public int getReply_num() {
+		return reply_num;
+	}
+
+	public void setReply_num(int reply_num) {
+		this.reply_num = reply_num;
 	}
 }

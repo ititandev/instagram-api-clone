@@ -36,7 +36,7 @@ public class test {
 
 	@PostMapping("/test/{username1}/{username2}")
 	public Map<String, Object> request(@PathVariable("username1") String username1, @PathVariable("username2") String username2) {
-		return photoDAO.test(username1, username2);
+		return null;
 	}
 
 	@PostMapping("/upload")

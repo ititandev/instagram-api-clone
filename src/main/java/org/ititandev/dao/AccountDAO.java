@@ -1,6 +1,7 @@
 package org.ititandev.dao;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import javax.sql.DataSource;
@@ -8,6 +9,9 @@ import javax.sql.DataSource;
 import org.ititandev.mapper.AccountMapper;
 import org.ititandev.model.Account;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
 public class AccountDAO {
@@ -38,20 +42,31 @@ public class AccountDAO {
 		String sql = "SELECT * FROM account WHERE username = ?";
 		return jdbcTemplate.query(sql, new Object[] { username }, new AccountMapper()).get(0);
 	}
-	
+
 	public int updateInfo(String username, Account account) {
-		String sql = "UPDATE account SET username = ?, email = ?, datetime_update = NOW(), name = ? " + 
-						"WHERE username = ?";
+		String sql = "UPDATE account SET username = ?, email = ?, datetime_update = NOW(), name = ? "
+				+ "WHERE username = ?";
 		return jdbcTemplate.update(sql, account.getUsername(), account.getEmail(), account.getName(), username);
 	}
-	public int updatePassword(String username, String password)
-	{
+
+	public int updatePassword(String username, String password) {
 		String sql = "UPDATE account SET password = ? WHERE username = ?";
 		return jdbcTemplate.update(sql, password, username);
 	}
-	// SimpleJdbcCall jdbcCall = new
-	// SimpleJdbcCall(dataSource).withProcedureName("getRecord");
-	//
-	// SqlParameterSource in = new MapSqlParameterSource().addValue("in_id", id);
-	// Map<String, Object> out = jdbcCall.execute(in);
+
+	public boolean checkPrivilege(String username1, String username2) {
+		SimpleJdbcCall jdbcCall = new SimpleJdbcCall(dataSource).withProcedureName("check_user_to_photo");
+		SqlParameterSource in = new MapSqlParameterSource().addValue("username1", username1).addValue("username2",
+				username2);
+		Map<String, Object> out = jdbcCall.execute(in);
+		return Boolean.valueOf(out.get("output").toString());
+	}
+
+	public boolean checkBlock(String username1, String username2) {
+		SimpleJdbcCall jdbcCall = new SimpleJdbcCall(dataSource).withProcedureName("check_block");
+		SqlParameterSource in = new MapSqlParameterSource().addValue("username1", username1).addValue("username2",
+				username2);
+		Map<String, Object> out = jdbcCall.execute(in);
+		return Boolean.valueOf(out.get("output").toString());
+	}
 }
