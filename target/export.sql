@@ -733,40 +733,12 @@ INSERT INTO `tag` VALUES (1,1,2,'NgocNhan123',4),(2,4,5,'HuongGiangLe1',7),(3,4,
 UNLOCK TABLES;
 
 --
+-- Dumping events for database 'instagram'
+--
+
+--
 -- Dumping routines for database 'instagram'
 --
-/*!50003 DROP FUNCTION IF EXISTS `add_location` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `add_location`(new_location VARCHAR(200)) RETURNS int(11)
-BEGIN
-	DECLARE x INT;
-    SET x=0;
-	SELECT location_id
-	FROM location AS L
-	WHERE L.location = new_location
-    INTO x;
-    IF x=0 THEN
-		SELECT COUNT(*) INTO x
-        FROM location;
-        SET x=x+1;
-        INSERT INTO location
-        VALUES (x,new_location);
-	END IF;
-    RETURN x;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP FUNCTION IF EXISTS `get_avatar` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -800,6 +772,9 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+
+SET GLOBAL log_bin_trust_function_creators = 1;
+
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` FUNCTION `get_comment_num`(photo_id int) RETURNS int(11)
 BEGIN
@@ -1174,4 +1149,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-15  0:06:12
+-- Dump completed on 2018-05-15  3:15:09
