@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.ititandev.DemoApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.234 sec - in org.ititandev.DemoApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.109 sec - in org.ititandev.DemoApplicationTests
