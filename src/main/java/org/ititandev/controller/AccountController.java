@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.ititandev.Application;
 import org.ititandev.dao.AccountDAO;
 import org.ititandev.model.Account;
+import org.ititandev.security.TokenHandler;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +25,8 @@ public class AccountController {
 	static AccountDAO accountDAO = Application.context.getBean("AccountDAO", AccountDAO.class);
 
 	@PostMapping("/signup")
-	public String signUp(HttpServletRequest request, HttpServletResponse response, @RequestBody String body) throws IOException, JSONException {
+	public String signUp(HttpServletRequest request, HttpServletResponse response, @RequestBody String body)
+			throws IOException, JSONException {
 		JSONObject json = new JSONObject(body);
 		// BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 		int result = accountDAO.insert(json.getString("username"), json.getString("password"), json.getString("email"),
@@ -72,5 +75,23 @@ public class AccountController {
 			return "{\"result\":\"success\"}";
 		else
 			return "{\"result\":\"error\"}";
+	}
+
+	@PostMapping("/refresh")
+	public void refreshToken(HttpServletResponse res, Authentication authentication) {
+		TokenHandler tokenHandler = new TokenHandler();
+		String user = authentication.getName();
+		String JWT = tokenHandler.build(user);
+		res.addHeader(tokenHandler.HEADER_STRING, tokenHandler.TOKEN_PREFIX + " " + JWT);
+	}
+	
+	@PostMapping("/checktoken")
+	public String checkToken(HttpServletResponse res, Authentication authentication) {
+//		TokenHandler tokenHandler = new TokenHandler();
+//		String user = authentication.getName();
+//		authentication.getDetails().toString();
+//		String JWT = tokenHandler.build(user);
+//		res.addHeader(tokenHandler.HEADER_STRING, tokenHandler.TOKEN_PREFIX + " " + JWT);
+		return null;
 	}
 }

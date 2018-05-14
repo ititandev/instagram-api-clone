@@ -62,7 +62,7 @@ public class DownloadController {
 			return null;
 	}
 
-	@GetMapping("/story/{filename}/{ext}")
+	@GetMapping("/story/{filename}.{ext}")
 	byte[] getStory(HttpServletResponse response, @PathVariable("story_id") String filename,
 			@PathVariable("ext") String ext) throws IOException {
 		filename += "." + ext;
