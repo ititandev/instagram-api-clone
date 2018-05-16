@@ -39,6 +39,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.GET, "/download/photo/{filename}.{ext}").permitAll()
 				.antMatchers(HttpMethod.GET, "/download/avatar/{filename}.{ext}").permitAll()
 				.antMatchers(HttpMethod.GET, "/download/story/{filename}.{ext}").permitAll()
+				.antMatchers(HttpMethod.GET, "/verify/resend/{username}").permitAll()
+				.antMatchers(HttpMethod.GET, "/verify/{username}/{hash}").permitAll()
 				.antMatchers(HttpMethod.GET, "/avatar").permitAll()
 				.anyRequest().authenticated().and()
 			.addFilterBefore(new JWTLoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)

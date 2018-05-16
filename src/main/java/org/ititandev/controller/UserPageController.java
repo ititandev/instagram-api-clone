@@ -14,7 +14,7 @@ public class UserPageController {
 	static PhotoDAO photoDAO = Application.context.getBean("PhotoDAO", PhotoDAO.class);
 	static AccountDAO accountDAO = Application.context.getBean("AccountDAO", AccountDAO.class);
 
-	@GetMapping("/userpage/{username}/{start}/{limit}")
+	@GetMapping("/profile/{username}/{start}/{limit}")
 	public UserPage getUserPage(@PathVariable("username") String username, @PathVariable("start") int start,
 			@PathVariable("limit") int limit) {
 		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();

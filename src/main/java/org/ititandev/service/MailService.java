@@ -18,7 +18,7 @@ public class MailService {
 			from = Config.getConfig("mail.username");
 		if (pass == null)
 			pass = Config.getConfig("mail.password");
-		String[] to = {_to};
+		String[] to = { _to };
 		Properties props = System.getProperties();
 		String host = "smtp.gmail.com";
 		props.put("mail.smtp.starttls.enable", "true");
@@ -42,9 +42,8 @@ public class MailService {
 			for (int i = 0; i < toAddress.length; i++) {
 				message.addRecipient(Message.RecipientType.TO, toAddress[i]);
 			}
-
+			message.setContent(body, "text/html; charset=utf-8");
 			message.setSubject(subject);
-			message.setText(body);
 			Transport transport = session.getTransport("smtp");
 			transport.connect(host, from, pass);
 			transport.sendMessage(message, message.getAllRecipients());
@@ -55,5 +54,9 @@ public class MailService {
 		} catch (MessagingException me) {
 			me.printStackTrace();
 		}
+	}
+
+	public static void sendMail(String to, String subject, String body) {
+		sendMail(to, subject, body, Config.getConfig("mail.username"), Config.getConfig("mail.password"));
 	}
 }

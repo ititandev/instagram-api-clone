@@ -555,10 +555,10 @@ DROP TABLE IF EXISTS `tag_in_comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tag_in_comment` (
-  `tag_id` int(11) NOT NULL,
+  `tag_in_comment_id` int(11) NOT NULL,
   `comment_id` int(11) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`tag_id`),
+  PRIMARY KEY (`tag_in_comment_id`),
   KEY `fk_tag_in_comment_idx` (`comment_id`),
   CONSTRAINT `fk_tag_in_comment_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`comment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -581,17 +581,17 @@ DROP TABLE IF EXISTS `tag_in_photo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tag_in_photo` (
-  `tag_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tag_in_photo_id` int(11) NOT NULL,
   `x_axis` int(11) DEFAULT NULL,
   `y_axis` int(11) DEFAULT NULL,
   `username` varchar(50) NOT NULL,
   `photo_id` int(11) NOT NULL,
-  PRIMARY KEY (`tag_id`),
+  PRIMARY KEY (`tag_in_photo_id`),
   KEY `fk_username_idx` (`username`),
   KEY `fk_photo_id_idx` (`photo_id`),
   CONSTRAINT `fk_tag_photo_id` FOREIGN KEY (`photo_id`) REFERENCES `photo` (`photo_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_tag_username` FOREIGN KEY (`username`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -612,10 +612,10 @@ DROP TABLE IF EXISTS `tag_in_reply`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tag_in_reply` (
-  `tag_id` int(11) NOT NULL,
+  `tag_in_reply_id` int(11) NOT NULL,
   `reply_id` int(11) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`tag_id`),
+  PRIMARY KEY (`tag_in_reply_id`),
   KEY `fk_tag_in_reply_reply_id_idx` (`reply_id`),
   CONSTRAINT `fk_tag_in_reply_reply_id` FOREIGN KEY (`reply_id`) REFERENCES `reply` (`reply_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1044,4 +1044,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-16  2:58:52
+-- Dump completed on 2018-05-16 18:03:45

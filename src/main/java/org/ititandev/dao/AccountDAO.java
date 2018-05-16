@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javax.sql.DataSource;
 
+import org.ititandev.config.Config;
 import org.ititandev.mapper.AccountMapper;
 import org.ititandev.model.Account;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -69,5 +70,33 @@ public class AccountDAO {
 		Map<String, Object> out = jdbcCall.execute(in);
 		return Boolean.valueOf(out.get("output").toString());
 	}
-	
+
+	public String checkVerify(String username) {
+		String sql = "SELECT active FROM account WHERE username = ?";
+		return jdbcTemplate.queryForList(sql, username).get(0).get("active").toString();
+	}
+
+	public String verify(String username, String hash) {
+		String sql = "SELECT COUNT(*) AS count FROM account WHERE username = ? AND verify_code = ?";
+		int count = Integer.valueOf(jdbcTemplate.queryForList(sql, username, hash).get(0).get("count").toString());
+		if (count == 1) {
+			String sql2 = "UPDATE account SET active = 1 WHERE username = ?";
+			int row = jdbcTemplate.update(sql2, username);
+			if (row == 1)
+				return "Verify successfully";
+		}
+		return "Verify unsuccessfully";
+	}
+
+	public String getVerifyLink(String username) {
+		String sql = "SELECT verify_code FROM account WHERE username = ?";
+		Map<String, Object> result = jdbcTemplate.queryForList(sql, username).get(0);
+		return Config.getConfig("hostname") + "/verify/" + username + "/" + result.get("verify_code");
+	}
+
+	public String getEmail(String username) {
+		String sql = "SELECT email FROM account WHERE username = ?";
+		return jdbcTemplate.queryForList(sql, username).get(0).get("email").toString();
+	}
+
 }

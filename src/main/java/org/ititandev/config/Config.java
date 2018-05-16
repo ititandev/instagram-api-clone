@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class Config {
-	
+
 	private String path;
 	private Properties properties;
 	private Properties config;
@@ -15,7 +15,8 @@ public class Config {
 		config = new Properties();
 		try {
 			properties.load(this.getClass().getClassLoader().getResourceAsStream("application.properties"));
-			config.load(new FileInputStream("/etc/instagram/server.conf"));
+			// config.load(new FileInputStream("/etc/instagram/server.conf"));
+			config.load(new FileInputStream("server.conf"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -44,7 +45,7 @@ public class Config {
 			instance = new Config();
 		return instance._getConfig(key);
 	}
-	
+
 	public static void setPath(String p) {
 		if (instance == null)
 			instance = new Config();
