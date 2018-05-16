@@ -15,8 +15,8 @@ public class Config {
 		config = new Properties();
 		try {
 			properties.load(this.getClass().getClassLoader().getResourceAsStream("application.properties"));
-			// config.load(new FileInputStream("/etc/instagram/server.conf"));
-			config.load(new FileInputStream("server.conf"));
+			 config.load(new FileInputStream("/etc/instagram/server.conf"));
+//			config.load(new FileInputStream("server.conf"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
