@@ -3,6 +3,7 @@ package org.ititandev.config;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
+import org.apache.commons.lang3.SystemUtils;
 
 public class Config {
 	private String path;
@@ -15,7 +16,7 @@ public class Config {
 		config = new Properties();
 		try {
 			properties.load(this.getClass().getClassLoader().getResourceAsStream("application.properties"));
-			if (File.separator == "/")
+			if (SystemUtils.IS_OS_LINUX)
 				path = "/etc/instagram/server.conf";
 			else
 				path = "server.conf";
