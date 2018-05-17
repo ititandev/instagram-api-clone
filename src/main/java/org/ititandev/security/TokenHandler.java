@@ -8,8 +8,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 public class TokenHandler {
 	
-//	final long EXPIRATIONTIME = 7*24*60*60*1000; 		
-	final long EXPIRATIONTIME = 2*1000; 		
+	final long EXPIRATIONTIME = 7*24*60*60*1000; 		
+	
 	final String SECRET = "make by ititandev";			// private key, better read it from an external file
 	
 	final public String TOKEN_PREFIX = "Ins";			// the prefix of the token in the http header
