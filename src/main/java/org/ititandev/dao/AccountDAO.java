@@ -76,6 +76,11 @@ public class AccountDAO {
 		return jdbcTemplate.queryForList(sql, username).get(0).get("active").toString();
 	}
 
+	public boolean checkLock(String username) {
+		String sql = "SELECT `lock` FROM account WHERE username = ?";
+		return Boolean.valueOf(jdbcTemplate.queryForList(sql, username).get(0).get("lock").toString());
+	}
+
 	public String verify(String username, String hash) {
 		String sql = "SELECT COUNT(*) AS count FROM account WHERE username = ? AND verify_code = ?";
 		int count = Integer.valueOf(jdbcTemplate.queryForList(sql, username, hash).get(0).get("count").toString());

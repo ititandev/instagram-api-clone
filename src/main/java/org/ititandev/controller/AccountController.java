@@ -17,7 +17,6 @@ import org.ititandev.security.TokenHandler;
 import org.ititandev.service.MailService;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.junit.runners.Parameterized.Parameters;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -31,11 +30,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AccountController {
 	static AccountDAO accountDAO = Application.context.getBean("AccountDAO", AccountDAO.class);
-	
+
 	@GetMapping("/")
 	public String root() {
 		return "Welcome to Instagram API Clone\nIt's for android app to use.";
 	}
+
 	@PostMapping("/signup")
 	public Object signUp(HttpServletRequest request, HttpServletResponse response, @RequestBody String body)
 			throws IOException, JSONException {
@@ -52,35 +52,38 @@ public class AccountController {
 		} catch (DuplicateKeyException e) {
 			return "Username existed";
 		}
-		if (result == 1)
-		{
-			String body1 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path1"))), StandardCharsets.UTF_8);
-			String body2 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path2"))), StandardCharsets.UTF_8);
+		if (result == 1) {
+			String body1 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path1"))),
+					StandardCharsets.UTF_8);
+			String body2 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path2"))),
+					StandardCharsets.UTF_8);
 			String verify = accountDAO.getVerifyLink(json.getString("username"));
 			String email = accountDAO.getEmail(json.getString("username"));
 			MailService.sendMail(email, "Instagram: Verify account", body1 + verify + body2);
 			return "true";
 		}
-			
+
 		else
 			return "Register failed";
 	}
-	
+
 	@GetMapping("/verify/resend/{username}")
 	public String resend(@PathVariable("username") String username) throws IOException {
-		String body1 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path1"))), StandardCharsets.UTF_8);
-		String body2 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path2"))), StandardCharsets.UTF_8);
+		String body1 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path1"))),
+				StandardCharsets.UTF_8);
+		String body2 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path2"))),
+				StandardCharsets.UTF_8);
 		String verify = accountDAO.getVerifyLink(username);
 		String email = accountDAO.getEmail(username);
 		MailService.sendMail(email, "Instagram: Verify account", body1 + verify + body2);
 		return "done";
 	}
-	
+
 	@GetMapping("/verify/{username}/{hash}")
 	public String verify(@PathVariable("username") String username, @PathVariable("hash") String hash) {
 		return accountDAO.verify(username, hash);
 	}
-	
+
 	@GetMapping("/account")
 	public Account account() {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -118,21 +121,12 @@ public class AccountController {
 	}
 
 	@PostMapping("/refresh")
-	public void refreshToken(HttpServletResponse res, Authentication authentication) {
+	public String refreshToken(HttpServletResponse response, Authentication authentication) throws IOException {
+		String username = authentication.getName();
 		TokenHandler tokenHandler = new TokenHandler();
-		String user = authentication.getName();
-		String JWT = tokenHandler.build(user);
-		res.addHeader(tokenHandler.HEADER_STRING, tokenHandler.TOKEN_PREFIX + " " + JWT);
+		String JWT = tokenHandler.build(username);
+		response.addHeader(tokenHandler.HEADER_STRING, tokenHandler.TOKEN_PREFIX + " " + JWT);
+		return accountDAO.checkVerify(username);
 	}
 
-	@PostMapping("/checktoken")
-	public String checkToken(HttpServletResponse res, Authentication authentication) {
-		// TokenHandler tokenHandler = new TokenHandler();
-		// String user = authentication.getName();
-		// authentication.getDetails().toString();
-		// String JWT = tokenHandler.build(user);
-		// res.addHeader(tokenHandler.HEADER_STRING, tokenHandler.TOKEN_PREFIX + " " +
-		// JWT);
-		return null;
-	}
 }
