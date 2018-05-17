@@ -31,7 +31,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AccountController {
 	static AccountDAO accountDAO = Application.context.getBean("AccountDAO", AccountDAO.class);
-
+	
+	@GetMapping("/")
+	public String root() {
+		return "Welcome to Instagram API Clone\nIt's for android app to use.";
+	}
 	@PostMapping("/signup")
 	public Object signUp(HttpServletRequest request, HttpServletResponse response, @RequestBody String body)
 			throws IOException, JSONException {

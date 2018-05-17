@@ -1,6 +1,5 @@
 package org.ititandev.config;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 import org.apache.commons.lang3.SystemUtils;
