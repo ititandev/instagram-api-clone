@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import org.ititandev.Application;
 import org.ititandev.config.Config;
 import org.ititandev.dao.AccountDAO;
 import org.ititandev.model.Account;
+import org.ititandev.model.User;
 import org.ititandev.security.TokenHandler;
 import org.ititandev.service.MailService;
 import org.json.JSONException;
@@ -123,10 +125,32 @@ public class AccountController {
 	@PostMapping("/refresh")
 	public String refreshToken(HttpServletResponse response, Authentication authentication) throws IOException {
 		String username = authentication.getName();
+		if (accountDAO.checkLock(username)) {
+			response.setStatus(401);
+			return "{\r\n" + "    \"timestamp\": 1526663411911,\r\n" + "    \"status\": 401,\r\n"
+					+ "    \"error\": \"Unauthorized\",\r\n"
+					+ "    \"message\": \"Authentication Failed: User is disabled\",\r\n"
+					+ "    \"path\": \"/login\"\r\n" + "}";
+		}
 		TokenHandler tokenHandler = new TokenHandler();
 		String JWT = tokenHandler.build(username);
 		response.addHeader(tokenHandler.HEADER_STRING, tokenHandler.TOKEN_PREFIX + " " + JWT);
-		return accountDAO.checkVerify(username);
+		String check = accountDAO.checkVerify(username);
+		if (check.equals("false")) {
+			String body1 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path1"))),
+					StandardCharsets.UTF_8);
+			String body2 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path2"))),
+					StandardCharsets.UTF_8);
+			String verify = accountDAO.getVerifyLink(username);
+			String email = accountDAO.getEmail(username);
+			MailService.sendMail(email, "Instagram: Verify account", body1 + verify + body2);
+		}
+		return check;
 	}
 
+	@GetMapping("/search/user/{keyword}")
+	public List<User> searchUser(@PathVariable("keyword") String keyword) {
+		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
+		return accountDAO.searchUser(keyword, currentUser);
+	}
 }

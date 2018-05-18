@@ -7,7 +7,9 @@ import java.util.Random;
 import javax.sql.DataSource;
 
 import org.ititandev.config.Config;
+import org.ititandev.model.User;
 import org.ititandev.mapper.AccountMapper;
+import org.ititandev.mapper.UserMapper;
 import org.ititandev.model.Account;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -102,6 +104,16 @@ public class AccountDAO {
 	public String getEmail(String username) {
 		String sql = "SELECT email FROM account WHERE username = ?";
 		return jdbcTemplate.queryForList(sql, username).get(0).get("email").toString();
+	}
+
+	public List<User> searchUser(String keyword, String currentUser) {
+		String sql = "SELECT account.username, email, name, "
+				+ "get_avatar(account.username) AS avatar_filename, phone_number "
+				+ "FROM account LEFT JOIN profile ON account.username = profile.username "
+				+ "WHERE (NOT check_block(account.username, ?)) AND (account.username LIKE '%" + keyword + "%' OR "
+				+ "email LIKE '%" + keyword + "%' OR " + "phone_number LIKE '%" + keyword + "%' OR name LIKE '%"
+				+ keyword + "%') LIMIT 0, 20";
+		return jdbcTemplate.query(sql, new Object[] { currentUser }, new UserMapper());
 	}
 
 }

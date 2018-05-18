@@ -46,20 +46,16 @@ public class DownloadController {
 	}
 
 	@GetMapping("/avatar/{filename}.{ext}")
-	byte[] getAvatar(HttpServletResponse response, @PathVariable("avatar_id") String filename,
+	byte[] getAvatar(HttpServletResponse response, @PathVariable("filename") String filename,
 			@PathVariable("ext") String ext) throws IOException {
 		filename += "." + ext;
-		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-		if (accountDAO.checkPrivilege(username, photoDAO.getUsernameWithAvatarFilename(filename))) {
-			response.setContentType(MediaType.IMAGE_JPEG_VALUE);
-			response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + ".jpg\"");
-			InputStream inputStream = new FileInputStream(Config.getConfig("avatar.dir") + File.separator + filename);
-			BufferedImage img = ImageIO.read(inputStream);
-			ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-			ImageIO.write(img, "jpg", byteStream);
-			return byteStream.toByteArray();
-		} else
-			return null;
+		response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+		response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + ".jpg\"");
+		InputStream inputStream = new FileInputStream(Config.getConfig("avatar.dir") + File.separator + filename);
+		BufferedImage img = ImageIO.read(inputStream);
+		ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+		ImageIO.write(img, "jpg", byteStream);
+		return byteStream.toByteArray();
 	}
 
 	@GetMapping("/story/{filename}.{ext}")

@@ -44,9 +44,29 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES ('a','a','b@gmail.com',1,0,'2018-05-06 23:09:06','2018-05-05 00:00:00','A',NULL),('a5','a','a@gmail.com',0,0,'2018-05-07 16:15:06','2018-05-07 16:15:06','tester','a9fe2080824b06ed55c0d6d00de41f98'),('HuongGiangLe1','huonggiang123','huonggiang@gmail.com',1,0,'2015-01-02 00:00:00','2014-12-22 00:00:00','Huong Giang',NULL),('Lancute11','Cutequaxa','Lankawaii@yahoo.com',0,0,'2016-05-03 00:00:00','2015-03-04 00:00:00','Lan Le Thi',NULL),('Minh98','123456','minh98sun2gmal.com',1,0,'2018-05-05 00:00:00','2018-05-05 00:00:00','Minh Nguyen',NULL),('NgocNhan123','NhanLolli','loliruletheworld@gmail.com',1,0,'2017-04-06 00:00:00','2014-03-05 00:00:00','Tran ngoc Duc Nhan',NULL),('PhamHoangAnh16','anhanhanh','phanh@outlook.com',1,0,'2018-05-05 00:00:00','2014-04-06 00:00:00','Hoang Anh Pham',NULL),('PhAnh16','anhanhanh','phanh@outlook.com',0,0,'2018-05-06 21:34:01','2018-05-06 21:34:01','Hoang Anh Pham','44d0d3548564c0de2e5a39397fe6213f'),('t1','anhanhanh','phfanh@outlook.com',0,0,'2018-05-06 17:43:39','2018-05-06 17:43:39','Hoang Anh Pham','7d817053673ca4c2982010feb6ee381a'),('t10','anhanhanh','phfanh@outlook.com',0,0,'2018-05-07 11:05:33','2018-05-07 11:05:33','Hoang Anh Pham','106148b7b6a65d217f205c7bf25c2790'),('t2','anhanhanh','phfanh@outlook.com',0,0,'2018-05-06 17:43:43','2018-05-06 17:43:43','Hoang Anh Pham','eb976eee34e0b5c0910ad795f7c02b82'),('t3','anhanhanh','phfanh@outlook.com',0,0,'2018-05-06 17:43:46','2018-05-06 17:43:46','Hoang Anh Pham','1ad03c9a69005cd656ebc2c70e784ce7'),('t4','anhanhanh','phanh@outlook.com',0,0,'2018-05-07 10:18:45','2018-05-07 10:18:45','Hoang Anh Pham','f4d9d558f1bf5a5260d680ca99d51218');
+INSERT INTO `account` VALUES ('a','a','manhpcpro@gmail.com',1,0,'2018-05-17 03:52:23','2018-05-17 03:52:23','a','d8dcee83d5a92e7e565e3101808c0e05'),('a1','a','manhpcpro@gmail.com',0,0,'2018-05-17 03:53:24','2018-05-17 03:53:24','a','99d8e2c567a7b6de4807eb0edff39fa7'),('a2','a','manhpcpro@gmail.com',1,0,'2018-05-17 04:03:43','2018-05-17 04:03:43','a','c6b20b0da7280419a5039732c4787714'),('a3','a','1611985@hcmut.edu.vn',1,0,'2018-05-17 04:05:33','2018-05-17 04:05:33','a','c02d7a773c0fd462917fda78120eba9b'),('c0','a','phanh@outlook.com',0,0,'2018-05-17 04:50:12','2018-05-17 04:50:12','Hoang Anh Pham','e96f0120319d6ef9509a1492e2c94370'),('HuongGiangLe1','huonggiang123','huonggiang@gmail.com',1,0,'2015-01-02 00:00:00','2014-12-22 00:00:00','Huong Giang',NULL),('Lancute11','Cutequaxa','Lankawaii@yahoo.com',0,0,'2016-05-03 00:00:00','2015-03-04 00:00:00','Lan Le Thi',NULL),('Minh98','123456','minh98sun2gmal.com',1,0,'2018-05-05 00:00:00','2018-05-05 00:00:00','Minh Nguyen',NULL),('NgocNhan123','NhanLolli','loliruletheworld@gmail.com',1,0,'2017-04-06 00:00:00','2014-03-05 00:00:00','Tran ngoc Duc Nhan',NULL),('PhamHoangAnh16','anhanhanh','phanh@outlook.com',1,0,'2018-05-05 00:00:00','2014-04-06 00:00:00','Hoang Anh Pham',NULL),('PhAnh16','anhanhanh','phanh@outlook.com',0,0,'2018-05-06 21:34:01','2018-05-06 21:34:01','Hoang Anh Pham','44d0d3548564c0de2e5a39397fe6213f'),('rgg35fsd','asfdfaf','fsfafafa',0,0,'2018-05-17 02:14:47','2018-05-17 02:14:47','fasff','e6b565379177738e01388704a94ff56a'),('t1','anhanhanh','phfanh@outlook.com',0,0,'2018-05-06 17:43:39','2018-05-06 17:43:39','Hoang Anh Pham','7d817053673ca4c2982010feb6ee381a'),('t10','anhanhanh','phfanh@outlook.com',0,0,'2018-05-07 11:05:33','2018-05-07 11:05:33','Hoang Anh Pham','106148b7b6a65d217f205c7bf25c2790'),('t2','anhanhanh','phfanh@outlook.com',0,0,'2018-05-06 17:43:43','2018-05-06 17:43:43','Hoang Anh Pham','eb976eee34e0b5c0910ad795f7c02b82'),('t3','anhanhanh','phfanh@outlook.com',0,0,'2018-05-06 17:43:46','2018-05-06 17:43:46','Hoang Anh Pham','1ad03c9a69005cd656ebc2c70e784ce7'),('t4','anhanhanh','phanh@outlook.com',0,0,'2018-05-07 10:18:45','2018-05-07 10:18:45','Hoang Anh Pham','f4d9d558f1bf5a5260d680ca99d51218'),('werwerewr','rerwr','ewrwe',0,0,'2018-05-17 02:28:01','2018-05-17 02:28:01','wer','476c7855372326f428a1dc77aa04fe92');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `after_account_insert` AFTER INSERT ON `account` FOR EACH ROW BEGIN
+	INSERT INTO setting(username,private_acc)
+    VALUES (NEW.username,1);
+    INSERT INTO profile (username)
+    VALUES (NEW.username);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `avatar`
@@ -73,7 +93,7 @@ CREATE TABLE `avatar` (
 
 LOCK TABLES `avatar` WRITE;
 /*!40000 ALTER TABLE `avatar` DISABLE KEYS */;
-INSERT INTO `avatar` VALUES (1,'HuongGiangLe1.jpg','HuongGiangLe1','2018-01-01 00:00:00'),(2,'Lancute11.jpg','Lancute11','2017-02-04 00:00:00'),(3,'Minh98.jpg','NgocNhan123','2018-03-02 00:00:00'),(4,'NgocNhan123.jpg','NgocNhan123','2016-03-12 00:00:00'),(5,'PhamHoangAnh16.jpg','PhamHoangAnh16','2018-12-11 00:00:00'),(6,'a','a','2018-12-11 00:00:00'),(9,'s','a','2018-12-11 00:00:00');
+INSERT INTO `avatar` VALUES (1,'HuongGiangLe1.jpg','HuongGiangLe1','2018-01-01 00:00:00'),(2,'Lancute11.jpg','Lancute11','2017-02-04 00:00:00'),(3,'Minh98.jpg','NgocNhan123','2018-03-02 00:00:00'),(4,'NgocNhan123.jpg','NgocNhan123','2016-03-12 00:00:00'),(5,'PhamHoangAnh16.jpg','PhamHoangAnh16','2018-12-11 00:00:00');
 /*!40000 ALTER TABLE `avatar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,6 +152,30 @@ LOCK TABLES `comment` WRITE;
 INSERT INTO `comment` VALUES (1,'Commet gi do','2018-01-01 00:00:00','Minh98',2),(2,'lol choi','2017-06-04 00:00:00','HuongGiangLe1',4),(3,'aka na bobo','2018-03-02 00:00:00','Lancute11',5),(4,'wakanda forever','2018-02-04 00:00:00','Lancute11',6),(5,'holy moly','2018-04-03 00:00:00','NgocNhan123',7),(6,'holy bless','2018-02-04 00:00:00','PhamHoangAnh16',5),(7,'random','2018-02-03 00:00:00','PhamHoangAnh16',6),(8,'pRNG=psuedo','2018-02-12 00:00:00','HuongGiangLe1',4);
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `after_comment_insert` AFTER INSERT ON `comment` FOR EACH ROW BEGIN
+	DECLARE usern VARCHAR(50);
+    SELECT username
+    FROM photo
+    WHERE photo_id = NEW.photo_id
+    INTO usern;
+    
+	INSERT INTO noti(username_rev,`read`,noti_type,type_id)
+    VALUES (usern,0,0,NEW.comment_id);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `feedback`
@@ -193,6 +237,24 @@ LOCK TABLES `follow` WRITE;
 INSERT INTO `follow` VALUES (1,'HuongGiangLe1','Minh98','2017-01-03 00:00:00',NULL),(2,'HuongGiangLe1','PhamHoangAnh16','2017-03-31 00:00:00',NULL),(3,'Lancute11','HuongGiangLe1','2018-03-02 00:00:00',NULL),(4,'Minh98','PhamHoangAnh16','2018-03-01 00:00:00',NULL),(5,'NgocNhan123','PhamHoangAnh16','2017-12-03 00:00:00',NULL),(6,'PhamHoangAnh16','Minh98','2018-01-03 00:00:00',NULL),(7,'PhamHoangAnh16','NgocNhan123','2018-03-13 00:00:00',NULL);
 /*!40000 ALTER TABLE `follow` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `after_follow_insert` AFTER INSERT ON `follow` FOR EACH ROW BEGIN
+	INSERT INTO noti(username_rev,`read`,noti_type,type_id)
+    VALUES (NEW.username2,0,2,NEW.follow_id);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `hashtag`
@@ -250,6 +312,30 @@ LOCK TABLES `like` WRITE;
 INSERT INTO `like` VALUES (1,'HuongGiangLe1',5,'2018-01-03 00:00:00'),(2,'HuongGiangLe1',6,'2018-03-12 00:00:00'),(3,'Lancute11',1,'2018-01-30 00:00:00'),(4,'Minh98',3,'2018-04-21 00:00:00'),(5,'Minh98',4,'2017-03-01 00:00:00'),(6,'Minh98',7,'2018-03-16 00:00:00'),(7,'NgocNhan123',2,'2018-03-12 00:00:00'),(8,'PhamHoangAnh16',7,'2018-03-27 00:00:00');
 /*!40000 ALTER TABLE `like` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `after_like_insert` AFTER INSERT ON `like` FOR EACH ROW BEGIN
+	DECLARE usern VARCHAR(50);
+    SELECT username
+    FROM photo
+    WHERE photo_id = NEW.photo_id
+    INTO usern;
+    
+	INSERT INTO noti(username_rev,`read`,noti_type,type_id)
+    VALUES (usern,0,3,NEW.like_id);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `location`
@@ -334,7 +420,6 @@ CREATE TABLE `noti` (
 
 LOCK TABLES `noti` WRITE;
 /*!40000 ALTER TABLE `noti` DISABLE KEYS */;
-INSERT INTO `noti` VALUES (1,1,1,'a',NULL);
 /*!40000 ALTER TABLE `noti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,7 +458,7 @@ CREATE TABLE `photo` (
 
 LOCK TABLES `photo` WRITE;
 /*!40000 ALTER TABLE `photo` DISABLE KEYS */;
-INSERT INTO `photo` VALUES (1,'vo va vo van','Lancute11_1.jpg','2017-01-01 00:00:00','2017-03-01 00:00:00',4,'CanonD90','120',NULL,800,NULL,NULL,'Lancute11'),(2,'biet chet lien','Lancute11_2.jpg','2018-02-01 00:00:00','2018-03-01 00:00:00',5,'Nikon1000','122',NULL,123,NULL,NULL,'Lancute11'),(3,'thoi dep','PhamHoangAnh16_1.jpg','2017-01-03 00:00:00','2018-02-03 00:00:00',5,'Fuji11',NULL,NULL,NULL,NULL,NULL,'PhamHoangAnh16'),(4,'aa','HuongGiangLe1_1.jpg','2017-03-01 00:00:00','2017-03-04 00:00:00',2,'NIKON',NULL,NULL,NULL,NULL,NULL,'HuongGiangLe1'),(5,'final loli','NgocNhan123_1.jpg','2017-02-01 00:00:00','2017-05-03 00:00:00',4,'CANON',NULL,NULL,NULL,NULL,NULL,'NgocNhan123'),(6,'ahiihi','Minh98_1.jpg','2017-01-05 00:00:00','2017-08-04 00:00:00',3,'SONY','8','1',900,3,1,'Minh98'),(7,'test choi','Minh98_2.jpg','2018-04-05 00:00:00','2018-04-05 00:00:00',5,'SONY',NULL,NULL,NULL,NULL,NULL,'Minh98'),(15,NULL,'1.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a');
+INSERT INTO `photo` VALUES (1,'vo va vo van','Lancute11_1.jpg','2017-01-01 00:00:00','2017-03-01 00:00:00',4,'CanonD90','120',NULL,800,NULL,NULL,'Lancute11'),(2,'biet chet lien','Lancute11_2.jpg','2018-02-01 00:00:00','2018-03-01 00:00:00',5,'Nikon1000','122',NULL,123,NULL,NULL,'Lancute11'),(3,'thoi dep','PhamHoangAnh16_1.jpg','2017-01-03 00:00:00','2018-02-03 00:00:00',5,'Fuji11',NULL,NULL,NULL,NULL,NULL,'PhamHoangAnh16'),(4,'aa','HuongGiangLe1_1.jpg','2017-03-01 00:00:00','2017-03-04 00:00:00',2,'NIKON',NULL,NULL,NULL,NULL,NULL,'HuongGiangLe1'),(5,'final loli','NgocNhan123_1.jpg','2017-02-01 00:00:00','2017-05-03 00:00:00',4,'CANON',NULL,NULL,NULL,NULL,NULL,'NgocNhan123'),(6,'ahiihi','Minh98_1.jpg','2017-01-05 00:00:00','2017-08-04 00:00:00',3,'SONY','8','1',900,3,1,'Minh98'),(7,'test choi','Minh98_2.jpg','2018-04-05 00:00:00','2018-04-05 00:00:00',5,'SONY',NULL,NULL,NULL,NULL,NULL,'Minh98');
 /*!40000 ALTER TABLE `photo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -401,7 +486,7 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES ('HuongGiangLe1','null','016773355123','female',NULL),('Lancute11','aka','0904470694','male','www.google.com'),('Minh98',NULL,'0921243335','male',NULL),('NgocNhan123','loli','09235215335','female','www.loliruletheworld.org'),('PhamHoangAnh16','beautiful girl','113','female',NULL);
+INSERT INTO `profile` VALUES ('a',NULL,NULL,NULL,NULL),('a1',NULL,NULL,NULL,NULL),('a2',NULL,NULL,NULL,NULL),('a3',NULL,NULL,NULL,NULL),('c0',NULL,NULL,NULL,NULL),('HuongGiangLe1','null','016773355123','female',NULL),('Lancute11','aka','0904470694','male','www.google.com'),('Minh98',NULL,'0921243335','male',NULL),('NgocNhan123','loli','09235215335','female','www.loliruletheworld.org'),('PhamHoangAnh16','beautiful girl','113','female',NULL),('rgg35fsd',NULL,NULL,NULL,NULL),('werwerewr',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -435,6 +520,30 @@ LOCK TABLES `reply` WRITE;
 INSERT INTO `reply` VALUES (1,'2018-01-01 00:00:00','rep choi',1,'PhamHoangAnh16'),(2,'2018-02-04 00:00:00','you loser',4,'HuongGiangLe1'),(3,'2018-02-12 00:00:00','true random',8,'Minh98'),(4,NULL,'them moi',2,'HuongGiangLe1');
 /*!40000 ALTER TABLE `reply` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `after_reply_insert` AFTER INSERT ON `reply` FOR EACH ROW BEGIN
+	DECLARE usern VARCHAR(50);
+    SELECT username
+    FROM comment
+    WHERE comment_id = NEW.comment_id
+    INTO usern;
+    
+	INSERT INTO noti(username_rev,`read`,noti_type,type_id)
+    VALUES (usern,0,1,NEW.reply_id);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `report`
@@ -515,7 +624,7 @@ CREATE TABLE `setting` (
 
 LOCK TABLES `setting` WRITE;
 /*!40000 ALTER TABLE `setting` DISABLE KEYS */;
-INSERT INTO `setting` VALUES ('HuongGiangLe1','en',0),('Lancute11','en',1),('Minh98','vn',0),('NgocNhan123','english',1),('PhamHoangAnh16','vietnamese',1);
+INSERT INTO `setting` VALUES ('a',NULL,1),('a1',NULL,1),('a2',NULL,1),('a3',NULL,1),('c0',NULL,1),('HuongGiangLe1','en',0),('Lancute11','en',1),('Minh98','vn',0),('NgocNhan123','english',1),('PhamHoangAnh16','vietnamese',1),('rgg35fsd',NULL,1),('werwerewr',NULL,1);
 /*!40000 ALTER TABLE `setting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -572,6 +681,24 @@ LOCK TABLES `tag_in_comment` WRITE;
 /*!40000 ALTER TABLE `tag_in_comment` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tag_in_comment` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `after_tag_in_comment_insert` AFTER INSERT ON `tag_in_comment` FOR EACH ROW BEGIN
+	INSERT INTO noti(username_rev,`read`,noti_type,type_id)
+    VALUES (NEW.username,0,5,NEW.tag_in_comment_id);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `tag_in_photo`
@@ -603,6 +730,24 @@ LOCK TABLES `tag_in_photo` WRITE;
 INSERT INTO `tag_in_photo` VALUES (1,1,2,'NgocNhan123',4),(2,4,5,'HuongGiangLe1',7),(3,4,4,'Lancute11',5),(4,13,43,'NgocNhan123',4);
 /*!40000 ALTER TABLE `tag_in_photo` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `after_tag_in_photo_insert` AFTER INSERT ON `tag_in_photo` FOR EACH ROW BEGIN
+	INSERT INTO noti(username_rev,`read`,noti_type,type_id)
+    VALUES (NEW.username,0,4,NEW.tag_in_photo_id);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `tag_in_reply`
@@ -629,6 +774,24 @@ LOCK TABLES `tag_in_reply` WRITE;
 /*!40000 ALTER TABLE `tag_in_reply` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tag_in_reply` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `after_tag_in_reply_insert` AFTER INSERT ON `tag_in_reply` FOR EACH ROW BEGIN
+	INSERT INTO noti(username_rev,`read`,noti_type,type_id)
+    VALUES (NEW.username,0,6,NEW.tag_in_reply_id);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Dumping events for database 'instagram'
@@ -1044,4 +1207,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-16 18:03:45
+-- Dump completed on 2018-05-18 19:46:21
