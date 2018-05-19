@@ -66,7 +66,7 @@ public class AccountDAO {
 	}
 
 	public boolean checkBlock(String username1, String username2) {
-		SimpleJdbcCall jdbcCall = new SimpleJdbcCall(dataSource).withProcedureName("check_block");
+		SimpleJdbcCall jdbcCall = new SimpleJdbcCall(dataSource).withProcedureName("check_block_proc");
 		SqlParameterSource in = new MapSqlParameterSource().addValue("username1", username1).addValue("username2",
 				username2);
 		Map<String, Object> out = jdbcCall.execute(in);

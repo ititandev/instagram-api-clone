@@ -1,7 +1,5 @@
 package org.ititandev.model;
 
-import java.util.List;
-
 public class UserPage {
 	String name;
 	String username;
@@ -9,7 +7,6 @@ public class UserPage {
 	int photo_num;
 	int following_num;
 	int follower_num;
-	List<Photo> photo;
 
 	public String getName() {
 		return name;
@@ -58,13 +55,4 @@ public class UserPage {
 	public void setFollower_num(int follower_num) {
 		this.follower_num = follower_num;
 	}
-
-	public List<Photo> getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(List<Photo> photo) {
-		this.photo = photo;
-	}
-
 }

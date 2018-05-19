@@ -81,11 +81,15 @@ public class PhotoDAO {
 		return jdbcTemplate.queryForList(sql, filename).get(0).get("username").toString();
 	}
 
-	public UserPage getUserPage(String username) {
-		String sql = "SELECT get_name(?) AS name, ? AS username, get_avatar(?) AS avatar_filename, get_photo_num(?) AS photo_num,"
-				+ "get_following_num(?) AS following_num, get_follower_num(?) AS follower_num";
-		return jdbcTemplate.query(sql, new Object[] { username, username, username, username, username, username },
-				new UserPageMapper()).get(0);
+	public UserPage getProfile(String username) {
+		String sql = "SELECT name, ? AS username, get_avatar(?) AS avatar_filename, get_photo_num(?) AS photo_num,"
+				+ "get_following_num(?) AS following_num, get_follower_num(?) AS follower_num FROM account WHERE username = ?";
+		List<UserPage> result = jdbcTemplate.query(sql, new Object[] { username, username, username, username, username, username },
+				new UserPageMapper());
+		if (result.size() == 1)
+			return result.get(0);
+		else
+			return null;
 	}
 
 	public List<Photo> getPhoto(String username, int start, int limit) {
