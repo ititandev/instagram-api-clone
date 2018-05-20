@@ -44,7 +44,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES ('a','a','manhpcpro@gmail.com',1,0,'2018-05-17 03:52:23','2018-05-17 03:52:23','a','d8dcee83d5a92e7e565e3101808c0e05'),('a1','a','Lankawaii@yahoo.com',1,0,'2016-05-03 00:00:00','2015-03-04 00:00:00','Lan Le Thi',NULL),('huonggiang123','huonggiang123','huonggiang@gmail.com',1,0,'2015-01-02 00:00:00','2014-12-22 00:00:00','Huong Giang',NULL),('Minh98','123456','minh98sun2gmal.com',1,0,'2018-05-05 00:00:00','2018-05-05 00:00:00','Minh Nguyen',NULL),('NgocNhan123','NhanLolli','loliruletheworld@gmail.com',1,0,'2017-04-06 00:00:00','2014-03-05 00:00:00','Tran ngoc Duc Nhan',NULL),('PhamHoangAnh16','anhanhanh','phanh@outlook.com',0,0,'2018-05-05 00:00:00','2014-04-06 00:00:00','Hoàng Anh Phạm',NULL),('rgg35fsd','asfdfaf','fsfafafa',0,0,'2018-05-17 02:14:47','2018-05-17 02:14:47','fasff','e6b565379177738e01388704a94ff56a'),('werwerewr','rerwr','ewrwe',0,0,'2018-05-17 02:28:01','2018-05-17 02:28:01','wer','476c7855372326f428a1dc77aa04fe92');
+INSERT INTO `account` VALUES ('bku.vnu','bku.vnu','bku.vnu@hcmut.edu.vn',1,0,'2018-03-02 00:00:00','2010-01-03 00:00:00','bku.vnu',NULL),('chrissycostanza','chrissycostanza','chrissycostanza@outlook.com',1,0,'2018-05-21 00:00:00','2008-04-02 00:00:00','Chrissy Costanza',NULL),('dave2dtv','dave2dtv','dave2dtv@gmail.com',1,0,'2018-03-04 00:00:00','2009-03-01 00:00:00','dave',NULL),('huyentrang','huyentrang','huyentrang@gmail.com',1,0,'2018-04-02 00:00:00','2010-03-01 00:00:00','Huyen Trang',NULL),('quoctebachkhoa','quoctebachkhoa','quoctebachkhoa@hcmut.edu.vn',1,0,'2018-05-19 00:00:00','2007-11-03 00:00:00','Quoc Te Dai Hoc Bach Khoa',NULL),('tiendung','tiendung','tiendung@yahoo.com',1,0,'2018-03-05 00:00:00','2016-04-02 00:00:00','Bui Tien Dung',NULL);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -84,7 +84,7 @@ CREATE TABLE `avatar` (
   UNIQUE KEY `filename_UNIQUE` (`filename`),
   KEY `fk_username_idx` (`username`),
   CONSTRAINT `fk_avatar_username` FOREIGN KEY (`username`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `avatar` (
 
 LOCK TABLES `avatar` WRITE;
 /*!40000 ALTER TABLE `avatar` DISABLE KEYS */;
-INSERT INTO `avatar` VALUES (1,'HuongGiangLe1.jpg','huonggiang123','2018-01-01 00:00:00'),(2,'Lancute11.jpg','a1','2017-02-04 00:00:00'),(3,'Minh98.jpg','NgocNhan123','2018-03-02 00:00:00'),(4,'NgocNhan123.jpg','NgocNhan123','2016-03-12 00:00:00'),(5,'PhamHoangAnh16.jpg','PhamHoangAnh16','2018-12-11 00:00:00'),(6,'a.jpg','PhamHoangAnh16','2018-12-12 00:00:00');
+INSERT INTO `avatar` VALUES (1,'bku.vnu.jpg','bku.vnu','2018-05-12 00:00:00'),(2,'chrissycostanza.jpg','chrissycostanza','2018-03-05 00:00:00'),(3,'dave2dtv.jpg','dave2dtv','2017-04-02 00:00:00'),(4,'huyentrang.jpg','huyentrang','2018-04-04 00:00:00'),(5,'quoctebachkhoa.jpg','quoctebachkhoa','2017-04-05 00:00:00'),(6,'tiendung.jpg','tiendung','2016-06-05 00:00:00');
 /*!40000 ALTER TABLE `avatar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +118,6 @@ CREATE TABLE `block` (
 
 LOCK TABLES `block` WRITE;
 /*!40000 ALTER TABLE `block` DISABLE KEYS */;
-INSERT INTO `block` VALUES ('a','a','2018-05-19 22:49:54'),('Minh98','Lancute11','2018-01-01 00:00:00'),('PhamHoangAnh16','Minh98','2017-03-02 00:00:00');
 /*!40000 ALTER TABLE `block` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +148,7 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (1,'Commet gi do','2018-01-01 00:00:00','Minh98',2),(2,'lol choi','2017-06-04 00:00:00','huonggiang123',4),(3,'aka na bobo','2018-03-02 00:00:00','a1',5),(4,'wakanda forever','2018-02-04 00:00:00','a1',6),(5,'holy moly','2018-04-03 00:00:00','NgocNhan123',7),(6,'holy bless','2018-02-04 00:00:00','PhamHoangAnh16',5),(7,'random','2018-02-03 00:00:00','PhamHoangAnh16',6),(8,'pRNG=psuedo','2018-02-12 00:00:00','huonggiang123',4);
+INSERT INTO `comment` VALUES (1,'Chuc mung nha truong co le ky niem thanh cong tot dep',NULL,'huyentrang',1),(2,'Chuc mung toan the can bo nha truong',NULL,'quoctebachkhoa',1),(3,'Ca la bach khoe se thang',NULL,'tiendung',5),(4,'I love ur song and allways love ur band',NULL,'dave2dtv',43),(5,'The final match was so excited',NULL,'tiendung',43),(6,'I love this song, ur voice is cool',NULL,'huyentrang',30),(7,'When do u guy start new concert ???',NULL,'dave2dtv',30),(8,'The VR Drake is really cool',NULL,'huyentrang',43);
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -225,7 +224,7 @@ CREATE TABLE `follow` (
   KEY `fk_follow_username_idx` (`username2`),
   CONSTRAINT `fk_follow_username1` FOREIGN KEY (`username1`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_follow_username2` FOREIGN KEY (`username2`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +233,6 @@ CREATE TABLE `follow` (
 
 LOCK TABLES `follow` WRITE;
 /*!40000 ALTER TABLE `follow` DISABLE KEYS */;
-INSERT INTO `follow` VALUES (1,'huonggiang123','Minh98','2017-01-03 00:00:00',NULL),(2,'huonggiang123','PhamHoangAnh16','2017-03-31 00:00:00',NULL),(3,'a1','huonggiang123','2018-03-02 00:00:00',NULL),(4,'Minh98','PhamHoangAnh16','2018-03-01 00:00:00',NULL),(5,'NgocNhan123','PhamHoangAnh16','2017-12-03 00:00:00',NULL),(6,'PhamHoangAnh16','Minh98','2018-01-03 00:00:00',NULL),(7,'PhamHoangAnh16','NgocNhan123','2018-03-13 00:00:00',NULL),(42,'a','huonggiang123','2018-05-20 11:30:31',0),(43,'a','NgocNhan123','2018-05-20 11:30:43',0),(80,'a','PhamHoangAnh16','2018-05-20 16:10:45',0),(82,'a','Minh98','2018-05-20 20:07:45',0),(83,'a','a1','2018-05-20 23:34:18',0);
 /*!40000 ALTER TABLE `follow` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -270,7 +268,7 @@ CREATE TABLE `hashtag` (
   PRIMARY KEY (`hashtag_id`),
   KEY `fk__idx` (`photo_id`),
   CONSTRAINT `fk_hashtag_photo_id` FOREIGN KEY (`photo_id`) REFERENCES `photo` (`photo_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -279,7 +277,6 @@ CREATE TABLE `hashtag` (
 
 LOCK TABLES `hashtag` WRITE;
 /*!40000 ALTER TABLE `hashtag` DISABLE KEYS */;
-INSERT INTO `hashtag` VALUES (1,'NgocNhan123',2),(2,'Lancute11',5),(3,'Lancute11',7),(4,'PhamHoangAnh16',3),(5,'Minh98',6),(6,'HuongGiangLe1',7);
 /*!40000 ALTER TABLE `hashtag` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -300,7 +297,7 @@ CREATE TABLE `like` (
   KEY `fk_like_username` (`username`) /*!80000 INVISIBLE */,
   CONSTRAINT `fk_like_photo_id` FOREIGN KEY (`photo_id`) REFERENCES `photo` (`photo_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_like_username` FOREIGN KEY (`username`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -309,7 +306,6 @@ CREATE TABLE `like` (
 
 LOCK TABLES `like` WRITE;
 /*!40000 ALTER TABLE `like` DISABLE KEYS */;
-INSERT INTO `like` VALUES (1,'huonggiang123',5,'2018-01-03 00:00:00'),(2,'huonggiang123',6,'2018-03-12 00:00:00'),(3,'a1',1,'2018-01-30 00:00:00'),(4,'Minh98',3,'2018-04-21 00:00:00'),(5,'Minh98',4,'2017-03-01 00:00:00'),(6,'Minh98',7,'2018-03-16 00:00:00'),(7,'NgocNhan123',2,'2018-03-12 00:00:00'),(8,'PhamHoangAnh16',7,'2018-03-27 00:00:00');
 /*!40000 ALTER TABLE `like` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -348,7 +344,7 @@ CREATE TABLE `location` (
   `location_id` int(11) NOT NULL AUTO_INCREMENT,
   `location` varchar(200) NOT NULL,
   PRIMARY KEY (`location_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -357,7 +353,6 @@ CREATE TABLE `location` (
 
 LOCK TABLES `location` WRITE;
 /*!40000 ALTER TABLE `location` DISABLE KEYS */;
-INSERT INTO `location` VALUES (1,'HCM'),(2,'Ha Noi'),(3,'Da Nang'),(4,'Istanbul'),(5,'Yggdrasil');
 /*!40000 ALTER TABLE `location` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,7 +386,6 @@ CREATE TABLE `message` (
 
 LOCK TABLES `message` WRITE;
 /*!40000 ALTER TABLE `message` DISABLE KEYS */;
-INSERT INTO `message` VALUES (1,'PhamHoangAnh16','Minh98','i love u xoxo',NULL,'2018-01-01 00:00:00',NULL,1),(2,'Minh98','PhamHoangAnh16','i dont care lol',NULL,'2018-01-01 00:00:00',NULL,1),(3,'PhamHoangAnh16','Minh98','nani really',NULL,'2018-01-01 00:00:00',NULL,1),(4,'NgocNhan123','huonggiang123','tra tien day',NULL,'2018-04-02 00:00:00',NULL,1),(5,'a1','Minh98','di an may',NULL,'2018-01-03 00:00:00',NULL,0);
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -411,7 +405,7 @@ CREATE TABLE `noti` (
   PRIMARY KEY (`noti_id`),
   KEY `fk_noti_username_idx` (`username_rev`),
   CONSTRAINT `fk_noti_username` FOREIGN KEY (`username_rev`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -420,7 +414,6 @@ CREATE TABLE `noti` (
 
 LOCK TABLES `noti` WRITE;
 /*!40000 ALTER TABLE `noti` DISABLE KEYS */;
-INSERT INTO `noti` VALUES (2,0,2,'PhamHoangAnh16',8),(3,0,2,'PhamHoangAnh16',11),(4,0,2,'PhamHoangAnh16',12),(5,0,2,'PhamHoangAnh16',13),(6,0,2,'PhamHoangAnh16',14),(7,0,2,'PhamHoangAnh16',15),(8,0,2,'PhamHoangAnh16',16),(9,0,2,'PhamHoangAnh16',17),(10,0,2,'PhamHoangAnh16',18),(11,0,2,'PhamHoangAnh16',19),(12,0,2,'PhamHoangAnh16',20),(13,0,2,'PhamHoangAnh16',21),(14,0,2,'PhamHoangAnh16',22),(15,0,2,'PhamHoangAnh16',23),(16,0,2,'PhamHoangAnh16',24),(17,0,2,'PhamHoangAnh16',25),(18,0,2,'PhamHoangAnh16',26),(19,0,2,'PhamHoangAnh16',27),(20,0,2,'PhamHoangAnh16',28),(21,0,2,'PhamHoangAnh16',29),(22,0,2,'PhamHoangAnh16',30),(23,0,2,'PhamHoangAnh16',31),(24,0,2,'PhamHoangAnh16',32),(25,0,2,'PhamHoangAnh16',33),(26,0,2,'PhamHoangAnh16',34),(27,0,2,'PhamHoangAnh16',35),(28,0,2,'PhamHoangAnh16',36),(29,0,2,'PhamHoangAnh16',37),(30,0,2,'PhamHoangAnh16',38),(31,0,2,'PhamHoangAnh16',39),(32,0,2,'PhamHoangAnh16',40),(33,0,2,'PhamHoangAnh16',41),(34,0,2,'huonggiang123',42),(35,0,2,'NgocNhan123',43),(36,0,2,'a1',44),(37,0,2,'a1',45),(38,0,2,'a1',46),(39,0,2,'a1',47),(40,0,2,'a1',48),(41,0,2,'a1',49),(42,0,2,'a1',50),(43,0,2,'a1',51),(44,0,2,'a1',52),(45,0,2,'a1',53),(46,0,2,'a1',54),(47,0,2,'a1',55),(48,0,2,'a1',56),(49,0,2,'a1',57),(50,0,2,'a1',58),(51,0,2,'a1',59),(52,0,2,'a1',60),(53,0,2,'a1',61),(54,0,2,'a1',62),(55,0,2,'a1',63),(56,0,2,'a1',64),(57,0,2,'a1',65),(58,0,2,'a1',66),(59,0,2,'a1',67),(60,0,2,'a1',68),(61,0,2,'a1',69),(62,0,2,'a1',70),(63,0,2,'a1',71),(64,0,2,'a1',72),(65,0,2,'a1',73),(66,0,2,'PhamHoangAnh16',74),(67,0,2,'PhamHoangAnh16',75),(68,0,2,'a1',76),(69,0,2,'a1',77),(70,0,2,'PhamHoangAnh16',78),(71,0,2,'PhamHoangAnh16',79),(72,0,2,'PhamHoangAnh16',80),(73,0,2,'a1',81),(74,0,2,'Minh98',82),(75,0,2,'a1',83);
 /*!40000 ALTER TABLE `noti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -450,7 +443,7 @@ CREATE TABLE `photo` (
   KEY `fk_username_idx` (`username`),
   CONSTRAINT `fk_photo_location_id` FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_photo_username` FOREIGN KEY (`username`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=202 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -459,7 +452,7 @@ CREATE TABLE `photo` (
 
 LOCK TABLES `photo` WRITE;
 /*!40000 ALTER TABLE `photo` DISABLE KEYS */;
-INSERT INTO `photo` VALUES (1,'vo va vo van','1.jpg','2017-01-01 00:00:00','2017-03-01 00:00:00',4,'CanonD90','120',NULL,800,NULL,NULL,'a1'),(2,'biet chet lien','2.jpg','2018-02-01 00:00:00','2018-03-01 00:00:00',5,'Nikon1000','122',NULL,123,NULL,NULL,'a1'),(3,'thoi dep','3.jpg','2017-01-03 00:00:00','2018-02-03 00:00:00',5,'Fuji11',NULL,NULL,NULL,NULL,NULL,'PhamHoangAnh16'),(4,'aa','HuongGiangLe1_1.jpg','2017-03-01 00:00:00','2017-03-04 00:00:00',2,'NIKON',NULL,NULL,NULL,NULL,NULL,'huonggiang123'),(5,'final loli','NgocNhan123_1.jpg','2017-02-01 00:00:00','2017-05-03 00:00:00',4,'CANON',NULL,NULL,NULL,NULL,NULL,'NgocNhan123'),(6,'ahiihi','Minh98_1.jpg','2017-01-05 00:00:00','2017-08-04 00:00:00',3,'SONY','8','1',900,3,1,'Minh98'),(7,'test choi','Minh98_2.jpg','2018-04-05 00:00:00','2018-04-05 00:00:00',5,'SONY',NULL,NULL,NULL,NULL,NULL,'Minh98');
+INSERT INTO `photo` VALUES (1,'Le ky niem 60 nam Phu Tho Bach Khoa','0.jpg','2018-05-20 01:35:47','2018-05-20 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(2,'Hoi dong ban dieu hanh OISP','1.jpg','2018-05-20 01:35:47','2018-05-20 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(3,'Goc nho Bach Khoa','10.jpg','2018-05-20 01:35:47','2018-05-20 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(4,'Buoi toi tai Bach Khoa','11.jpg','2018-05-20 01:35:47','2018-05-20 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(5,'BKU vs USSH, ngay 14-4-2017','12.jpg','2018-05-19 01:35:47','2018-05-19 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(6,'No Caption','13.jpg','2018-05-19 01:35:47','2018-05-19 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(7,'Co vu cho HCMUT BLUE SHARK','14.jpg','2018-05-19 01:35:47','2018-05-19 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(8,'No Caption','15.jpg','2018-05-19 01:35:47','2018-05-19 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(9,'No Caption','16.jpg','2018-05-18 01:35:47','2018-05-18 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(10,'Dat chuan HCERES','17.jpg','2018-05-18 01:35:47','2018-05-18 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(11,'No Caption','18.jpg','2018-05-18 01:35:47','2018-05-18 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(12,'No Caption','19.jpg','2018-05-18 01:35:47','2018-05-18 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(13,'Ky niem 60 nam ','2.jpg','2018-05-17 01:35:47','2018-05-17 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(14,'7 minutes from dormitory to university','20.jpg','2018-05-17 01:35:47','2018-05-17 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(15,'Chup hinh luu niem','21.jpg','2018-05-17 01:35:47','2018-05-17 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(16,'No Caption','22.jpg','2018-05-17 01:35:47','2018-05-17 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(17,'No Caption','23.jpg','2018-05-16 01:35:47','2018-05-16 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(18,'No Caption','3.jpg','2018-05-16 01:35:47','2018-05-16 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(19,'No Caption','4.jpg','2018-05-16 01:35:47','2018-05-16 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(20,'No Caption','5.jpg','2018-05-16 01:35:47','2018-05-16 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(21,'No Caption','6.jpg','2018-05-15 01:35:47','2018-05-15 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(22,'No Caption','7.jpg','2018-05-15 01:35:47','2018-05-15 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(23,'No Caption','8.jpg','2018-05-15 01:35:47','2018-05-15 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(24,'No Caption','9.jpg','2018-05-15 01:35:47','2018-05-15 01:35:47',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bku.vnu'),(25,'Exactly who am i ???','50.jpg','2018-05-20 01:35:48','2018-05-20 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(26,'Nothing more in my life','51.jpg','2018-05-20 01:35:48','2018-05-20 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(27,'Close to next concert','52.jpg','2018-05-20 01:35:48','2018-05-20 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(28,'Feel bad girl','53.jpg','2018-05-20 01:35:48','2018-05-20 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(29,'No Caption','54.jpg','2018-05-19 01:35:48','2018-05-19 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(30,'Outsider- Insider??','55.jpg','2018-05-19 01:35:48','2018-05-19 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(31,'Good mood today ^^','56.jpg','2018-05-19 01:35:48','2018-05-19 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(32,'Im sexy and i know it!!','57.jpg','2018-05-19 01:35:48','2018-05-19 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(33,'Get out the world','58.jpg','2018-05-18 01:35:48','2018-05-18 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(34,'No Caption','59.jpg','2018-05-18 01:35:48','2018-05-18 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(35,'Ready for consert <3','60.jpg','2018-05-18 01:35:48','2018-05-18 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(36,'No Caption','61.jpg','2018-05-18 01:35:48','2018-05-18 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(37,'My childhood =)','62.jpg','2018-05-17 01:35:48','2018-05-17 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(38,'','63.jpg','2018-05-17 01:35:48','2018-05-17 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(39,'Welcom to Pixar Fest','64.jpg','2018-05-17 01:35:48','2018-05-17 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(40,'Thanks Every One for great support','65.jpg','2018-05-17 01:35:48','2018-05-17 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(41,'Nothing to say','66.jpg','2018-05-16 01:35:48','2018-05-16 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(42,'No Caption','67.jpg','2018-05-16 01:35:48','2018-05-16 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(43,'LOL World Championship !! Really HOT','68.jpg','2018-05-16 01:35:48','2018-05-16 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(44,'My pink hair $$','69.jpg','2018-05-16 01:35:48','2018-05-16 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(45,'Moscow','70.jpg','2018-05-15 01:35:48','2018-05-15 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(46,'Pink Hair again','71.jpg','2018-05-15 01:35:48','2018-05-15 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(47,'Next our tour around the world','72.jpg','2018-05-15 01:35:48','2018-05-15 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(48,'Ninja and Alan Walker','73.jpg','2018-05-15 01:35:48','2018-05-15 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(49,'No Caption','74.jpg','2018-05-14 01:35:48','2018-05-14 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(50,'My girlfriend','75.jpg','2018-05-14 01:35:48','2018-05-14 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(51,'No Caption','76.jpg','2018-05-14 01:35:48','2018-05-14 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(52,'No Caption','77.jpg','2018-05-14 01:35:48','2018-05-14 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(53,'No Caption','78.jpg','2018-05-13 01:35:48','2018-05-13 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(54,'No Caption','79.jpg','2018-05-13 01:35:48','2018-05-13 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'chrissycostanza'),(55,'My work space','100.jpg','2018-05-20 01:35:48','2018-05-20 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(56,'No Caption','101.jpg','2018-05-20 01:35:48','2018-05-20 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(57,'So thich','102.jpg','2018-05-20 01:35:48','2018-05-20 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(58,'No Caption','103.jpg','2018-05-20 01:35:48','2018-05-20 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(59,'Violet Evergarden','104.jpg','2018-05-19 01:35:48','2018-05-19 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(60,'No Caption','105.jpg','2018-05-19 01:35:48','2018-05-19 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(61,'Razer mouse','106.jpg','2018-05-19 01:35:48','2018-05-19 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(62,'No Caption','107.jpg','2018-05-19 01:35:48','2018-05-19 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(63,'No Caption','108.jpg','2018-05-18 01:35:48','2018-05-18 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(64,'No Caption','109.jpg','2018-05-18 01:35:48','2018-05-18 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(65,'No Caption','110.jpg','2018-05-18 01:35:48','2018-05-18 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(66,'No Caption','111.jpg','2018-05-18 01:35:48','2018-05-18 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(67,'Skull Pad','112.jpg','2018-05-17 01:35:48','2018-05-17 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(68,'New Microchipset','113.jpg','2018-05-17 01:35:48','2018-05-17 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(69,'IBL Speaker','114.jpg','2018-05-17 01:35:48','2018-05-17 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(70,'No Caption','115.jpg','2018-05-17 01:35:48','2018-05-17 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(71,'No Caption','116.jpg','2018-05-16 01:35:48','2018-05-16 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(72,'No Caption','117.jpg','2018-05-16 01:35:48','2018-05-16 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(73,'Star War with AR weapons ','118.jpg','2018-05-16 01:35:48','2018-05-16 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(74,'Really cool characters','119.jpg','2018-05-16 01:35:48','2018-05-16 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(75,'Emotion done!!','120.jpg','2018-05-15 01:35:48','2018-05-15 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(76,'Dell vs Asus','121.jpg','2018-05-15 01:35:48','2018-05-15 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(77,'Which color boy?','122.jpg','2018-05-15 01:35:48','2018-05-15 01:35:48',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(78,'No Caption','123.jpg','2018-05-15 01:35:49','2018-05-15 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dave2dtv'),(79,'Du lich nuoc ngoai la dieu nen lam khi ban con tre, dung de hoi tiec khi qua muon','150.jpg','2018-05-20 01:35:49','2018-05-20 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(80,'Thay doi cam nhan ve the gioi quan','151.jpg','2018-05-20 01:35:49','2018-05-20 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(81,'New hair ^^','152.jpg','2018-05-20 01:35:49','2018-05-20 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(82,'I never good at chemistry ~.~ Damn it !','153.jpg','2018-05-20 01:35:49','2018-05-20 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(83,'No Caption','154.jpg','2018-05-19 01:35:49','2018-05-19 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(84,'Ao dai','155.jpg','2018-05-19 01:35:49','2018-05-19 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(85,'No Caption','156.jpg','2018-05-19 01:35:49','2018-05-19 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(86,'No Caption','157.jpg','2018-05-19 01:35:49','2018-05-19 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(87,'Fool in Pool','158.jpg','2018-05-18 01:35:49','2018-05-18 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(88,'No Caption','159.jpg','2018-05-18 01:35:49','2018-05-18 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(89,'Khoang troi uoc mo','160.jpg','2018-05-18 01:35:49','2018-05-18 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(90,'No Caption','161.jpg','2018-05-18 01:35:49','2018-05-18 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(91,'No Caption','162.jpg','2018-05-17 01:35:49','2018-05-17 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(92,'No Caption','163.jpg','2018-05-17 01:35:49','2018-05-17 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(93,'Fashion Week 2017 @@','164.jpg','2018-05-17 01:35:49','2018-05-17 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(94,'No Caption','165.jpg','2018-05-17 01:35:49','2018-05-17 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(95,'No Caption','166.jpg','2018-05-16 01:35:49','2018-05-16 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(96,'No Caption','167.jpg','2018-05-16 01:35:49','2018-05-16 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(97,'No Caption','168.jpg','2018-05-16 01:35:49','2018-05-16 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(98,'No Caption','169.jpg','2018-05-16 01:35:49','2018-05-16 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(99,'No Caption','170.jpg','2018-05-15 01:35:49','2018-05-15 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(100,'No Caption','171.jpg','2018-05-15 01:35:49','2018-05-15 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(101,'No Caption','172.jpg','2018-05-15 01:35:49','2018-05-15 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(102,'No Caption','173.jpg','2018-05-15 01:35:49','2018-05-15 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(103,'No Caption','174.jpg','2018-05-14 01:35:49','2018-05-14 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(104,'No Caption','175.jpg','2018-05-14 01:35:49','2018-05-14 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(105,'No Caption','176.jpg','2018-05-14 01:35:49','2018-05-14 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(106,'No Caption','177.jpg','2018-05-14 01:35:49','2018-05-14 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(107,'No Caption','178.jpg','2018-05-13 01:35:49','2018-05-13 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(108,'No Caption','179.jpg','2018-05-13 01:35:49','2018-05-13 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(109,'Buon ngu qua roi','180.jpg','2018-05-13 01:35:49','2018-05-13 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(110,'No Caption','181.jpg','2018-05-13 01:35:49','2018-05-13 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(111,'No Caption','182.jpg','2018-05-12 01:35:49','2018-05-12 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(112,'No Caption','183.jpg','2018-05-12 01:35:49','2018-05-12 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(113,'No Caption','184.jpg','2018-05-12 01:35:49','2018-05-12 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(114,'No Caption','185.jpg','2018-05-12 01:35:49','2018-05-12 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(115,'Moi mua xe ne','186.jpg','2018-05-11 01:35:49','2018-05-11 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(116,'No Caption','187.jpg','2018-05-11 01:35:49','2018-05-11 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(117,'No Caption','188.jpg','2018-05-11 01:35:49','2018-05-11 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(118,'No Caption','189.jpg','2018-05-11 01:35:49','2018-05-11 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(119,'No Caption','190.jpg','2018-05-10 01:35:49','2018-05-10 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(120,'No Caption','191.jpg','2018-05-10 01:35:49','2018-05-10 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(121,'No Caption','192.jpg','2018-05-10 01:35:49','2018-05-10 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(122,'No Caption','193.jpg','2018-05-10 01:35:49','2018-05-10 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(123,'Vunng Tau Beach','194.jpg','2018-05-09 01:35:49','2018-05-09 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'huyentrang'),(124,'Ban da thu skill nay','200.jpg','2018-05-20 01:35:49','2018-05-20 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(125,'Khi mat ban 20/10','201.jpg','2018-05-20 01:35:49','2018-05-20 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(126,'Nha dieu kien','202.jpg','2018-05-20 01:35:49','2018-05-20 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(127,'Asuma 3 tay','203.jpg','2018-05-20 01:35:49','2018-05-20 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(128,'Ban da tung','204.jpg','2018-05-19 01:35:49','2018-05-19 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(129,'Canh thi tai OISP','205.jpg','2018-05-19 01:35:49','2018-05-19 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(130,'No Caption','206.jpg','2018-05-19 01:35:49','2018-05-19 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(131,'No Caption','207.jpg','2018-05-19 01:35:49','2018-05-19 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(132,'Kawaii Neko','208.jpg','2018-05-18 01:35:49','2018-05-18 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(133,'Hanh phuc chi don gian la vay','209.jpg','2018-05-18 01:35:49','2018-05-18 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(134,'Dung ko vay','210.jpg','2018-05-18 01:35:49','2018-05-18 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(135,'feel bad man, ahihi stupid','211.jpg','2018-05-18 01:35:49','2018-05-18 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(136,'Qua dang cap','212.jpg','2018-05-17 01:35:49','2018-05-17 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(137,'Bon khon nan nay dau cung co','213.jpg','2018-05-17 01:35:49','2018-05-17 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(138,'Horray, Duoc nghi ba con oi','214.jpg','2018-05-17 01:35:49','2018-05-17 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(139,'No Caption','215.jpg','2018-05-17 01:35:49','2018-05-17 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(140,'No Caption','216.jpg','2018-05-16 01:35:49','2018-05-16 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(141,'No Caption','217.jpg','2018-05-16 01:35:49','2018-05-16 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(142,'No Caption','218.jpg','2018-05-16 01:35:49','2018-05-16 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(143,'No Caption','219.jpg','2018-05-16 01:35:49','2018-05-16 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(144,'Bot xao quan nha may','220.jpg','2018-05-15 01:35:49','2018-05-15 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(145,'No Caption','221.jpg','2018-05-15 01:35:49','2018-05-15 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(146,'Dieu khong the tai Bach Khoa','222.jpg','2018-05-15 01:35:49','2018-05-15 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(147,'Who care ?','223.jpg','2018-05-15 01:35:49','2018-05-15 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(148,'No Caption','224.jpg','2018-05-14 01:35:49','2018-05-14 01:35:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(149,'Co ai mong cho','225.jpg','2018-05-14 01:35:50','2018-05-14 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(150,'Promote truong nao','226.jpg','2018-05-14 01:35:50','2018-05-14 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(151,'Sang choanh qua','227.jpg','2018-05-14 01:35:50','2018-05-14 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(152,'No Caption','228.jpg','2018-05-13 01:35:50','2018-05-13 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(153,'Nho don xem LIVESTREAM','229.jpg','2018-05-13 01:35:50','2018-05-13 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'quoctebachkhoa'),(154,'No Caption','250.jpg','2018-05-20 01:35:50','2018-05-20 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(155,'No Caption','251.jpg','2018-05-20 01:35:50','2018-05-20 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(156,'No Caption','252.jpg','2018-05-20 01:35:50','2018-05-20 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(157,'No Caption','253.jpg','2018-05-20 01:35:50','2018-05-20 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(158,'No Caption','254.jpg','2018-05-19 01:35:50','2018-05-19 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(159,'No Caption','255.jpg','2018-05-19 01:35:50','2018-05-19 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(160,'No Caption','256.jpg','2018-05-19 01:35:50','2018-05-19 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(161,'No Caption','257.jpg','2018-05-19 01:35:50','2018-05-19 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(162,'No Caption','258.jpg','2018-05-18 01:35:50','2018-05-18 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(163,'No Caption','259.jpg','2018-05-18 01:35:50','2018-05-18 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(164,'No Caption','260.jpg','2018-05-18 01:35:50','2018-05-18 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(165,'No Caption','261.jpg','2018-05-18 01:35:50','2018-05-18 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(166,'No Caption','262.jpg','2018-05-17 01:35:50','2018-05-17 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(167,'No Caption','263.jpg','2018-05-17 01:35:50','2018-05-17 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(168,'No Caption','264.jpg','2018-05-17 01:35:50','2018-05-17 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(169,'No Caption','265.jpg','2018-05-17 01:35:50','2018-05-17 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(170,'No Caption','266.jpg','2018-05-16 01:35:50','2018-05-16 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(171,'No Caption','267.jpg','2018-05-16 01:35:50','2018-05-16 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(172,'No Caption','268.jpg','2018-05-16 01:35:50','2018-05-16 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(173,'No Caption','269.jpg','2018-05-16 01:35:50','2018-05-16 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(174,'No Caption','270.jpg','2018-05-15 01:35:50','2018-05-15 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(175,'No Caption','271.jpg','2018-05-15 01:35:50','2018-05-15 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(176,'No Caption','272.jpg','2018-05-15 01:35:50','2018-05-15 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(177,'No Caption','273.jpg','2018-05-15 01:35:50','2018-05-15 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(178,'No Caption','274.jpg','2018-05-14 01:35:50','2018-05-14 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(179,'No Caption','275.jpg','2018-05-14 01:35:50','2018-05-14 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(180,'No Caption','276.jpg','2018-05-14 01:35:50','2018-05-14 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(181,'No Caption','277.jpg','2018-05-14 01:35:50','2018-05-14 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(182,'No Caption','278.jpg','2018-05-13 01:35:50','2018-05-13 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(183,'No Caption','279.jpg','2018-05-13 01:35:50','2018-05-13 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(184,'No Caption','280.jpg','2018-05-13 01:35:50','2018-05-13 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(185,'No Caption','281.jpg','2018-05-13 01:35:50','2018-05-13 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(186,'No Caption','282.jpg','2018-05-12 01:35:50','2018-05-12 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(187,'No Caption','283.jpg','2018-05-12 01:35:50','2018-05-12 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(188,'No Caption','284.jpg','2018-05-12 01:35:50','2018-05-12 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(189,'No Caption','285.jpg','2018-05-12 01:35:50','2018-05-12 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(190,'No Caption','286.jpg','2018-05-11 01:35:50','2018-05-11 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(191,'No Caption','287.jpg','2018-05-11 01:35:50','2018-05-11 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(192,'No Caption','288.jpg','2018-05-11 01:35:50','2018-05-11 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(193,'No Caption','289.jpg','2018-05-11 01:35:50','2018-05-11 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(194,'No Caption','290.jpg','2018-05-10 01:35:50','2018-05-10 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(195,'No Caption','291.jpg','2018-05-10 01:35:50','2018-05-10 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(196,'No Caption','292.jpg','2018-05-10 01:35:50','2018-05-10 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(197,'No Caption','293.jpg','2018-05-10 01:35:50','2018-05-10 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(198,'No Caption','294.jpg','2018-05-09 01:35:50','2018-05-09 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(199,'No Caption','295.jpg','2018-05-09 01:35:50','2018-05-09 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(200,'No Caption','296.jpg','2018-05-09 01:35:50','2018-05-09 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung'),(201,'No Caption','297.jpg','2018-05-09 01:35:50','2018-05-09 01:35:50',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tiendung');
 /*!40000 ALTER TABLE `photo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -487,7 +480,6 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES ('a',NULL,NULL,NULL,NULL),('a1','aka','0904470694','male','www.google.com'),('huonggiang123','null','016773355123','female',NULL),('Minh98',NULL,'0921243335','male',NULL),('NgocNhan123','loli','09235215335','female','www.loliruletheworld.org'),('PhamHoangAnh16','beautiful girl','113','female','itian.com'),('rgg35fsd',NULL,NULL,NULL,NULL),('werwerewr',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -509,7 +501,7 @@ CREATE TABLE `reply` (
   KEY `comment_id_idx` (`comment_id`),
   CONSTRAINT `fk_reply_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`comment_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_reply_username` FOREIGN KEY (`username`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -518,7 +510,7 @@ CREATE TABLE `reply` (
 
 LOCK TABLES `reply` WRITE;
 /*!40000 ALTER TABLE `reply` DISABLE KEYS */;
-INSERT INTO `reply` VALUES (1,'2018-01-01 00:00:00','rep choi',1,'PhamHoangAnh16'),(2,'2018-02-04 00:00:00','you loser',4,'huonggiang123'),(3,'2018-02-12 00:00:00','true random',8,'Minh98'),(4,NULL,'them moi',2,'huonggiang123');
+INSERT INTO `reply` VALUES (1,NULL,'Cam on em',1,'bku.vnu'),(2,NULL,'Em cung nghi vay',3,'huyentrang'),(3,NULL,'Thank you, love you too',4,'chrissycostanza'),(4,NULL,'yeah! really excited',5,'chrissycostanza'),(5,NULL,'unlucky for SKT',5,'dave2dtv'),(6,NULL,'thanks',6,'chrissycostanza'),(7,NULL,'maybe 21/5',7,'chrissycostanza'),(8,NULL,'Yeah !!',8,'chrissycostanza'),(9,NULL,'Indeed',8,'dave2dtv'),(10,NULL,'but it not real',8,'huyentrang');
 /*!40000 ALTER TABLE `reply` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -571,7 +563,6 @@ CREATE TABLE `report` (
 
 LOCK TABLES `report` WRITE;
 /*!40000 ALTER TABLE `report` DISABLE KEYS */;
-INSERT INTO `report` VALUES ('Minh98',5,'dont like it','2018-03-04 00:00:00'),('NgocNhan123',4,'test chuc nang','2018-02-04 00:00:00');
 /*!40000 ALTER TABLE `report` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -598,7 +589,6 @@ CREATE TABLE `save` (
 
 LOCK TABLES `save` WRITE;
 /*!40000 ALTER TABLE `save` DISABLE KEYS */;
-INSERT INTO `save` VALUES ('Minh98',2),('PhamHoangAnh16',2),('PhamHoangAnh16',3),('NgocNhan123',5),('Minh98',6),('huonggiang123',7);
 /*!40000 ALTER TABLE `save` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -625,7 +615,6 @@ CREATE TABLE `setting` (
 
 LOCK TABLES `setting` WRITE;
 /*!40000 ALTER TABLE `setting` DISABLE KEYS */;
-INSERT INTO `setting` VALUES ('a',NULL,1),('a1','en',1),('huonggiang123','en',0),('Minh98','vn',0),('NgocNhan123','english',1),('PhamHoangAnh16','vietnamese',1),('rgg35fsd',NULL,1),('werwerewr',NULL,1);
 /*!40000 ALTER TABLE `setting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -653,7 +642,6 @@ CREATE TABLE `story` (
 
 LOCK TABLES `story` WRITE;
 /*!40000 ALTER TABLE `story` DISABLE KEYS */;
-INSERT INTO `story` VALUES (1,'2018-01-22 00:00:00','HuongGiangLe1_Story1.png','huonggiang123'),(2,'2018-02-12 00:00:00','NgocNhan123_Story1.png','NgocNhan123'),(3,'2018-03-13 00:00:00','PhamHoangAnh16_Story1.png','PhamHoangAnh16'),(4,'2018-04-13 00:00:00','PhamHoangAnh16_Story2.png','PhamHoangAnh16');
 /*!40000 ALTER TABLE `story` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -709,7 +697,7 @@ DROP TABLE IF EXISTS `tag_in_photo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tag_in_photo` (
-  `tag_in_photo_id` int(11) NOT NULL,
+  `tag_in_photo_id` int(11) NOT NULL AUTO_INCREMENT,
   `x_axis` int(11) DEFAULT NULL,
   `y_axis` int(11) DEFAULT NULL,
   `username` varchar(50) NOT NULL,
@@ -728,7 +716,6 @@ CREATE TABLE `tag_in_photo` (
 
 LOCK TABLES `tag_in_photo` WRITE;
 /*!40000 ALTER TABLE `tag_in_photo` DISABLE KEYS */;
-INSERT INTO `tag_in_photo` VALUES (1,1,2,'NgocNhan123',4),(2,4,5,'huonggiang123',7),(3,4,4,'a1',5),(4,13,43,'NgocNhan123',4);
 /*!40000 ALTER TABLE `tag_in_photo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1301,4 +1288,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-21  2:30:14
+-- Dump completed on 2018-05-21  2:48:20
