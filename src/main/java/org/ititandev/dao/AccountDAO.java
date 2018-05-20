@@ -116,4 +116,11 @@ public class AccountDAO {
 		return jdbcTemplate.query(sql, new Object[] { currentUser }, new UserMapper());
 	}
 
+	public Boolean follow(String currentUser, String username) {
+		SimpleJdbcCall jdbcCall = new SimpleJdbcCall(dataSource).withProcedureName("set_follow");
+		SqlParameterSource in = new MapSqlParameterSource().addValue("user1", currentUser).addValue("user2", username);
+		Map<String, Object> out = jdbcCall.execute(in);
+		return Boolean.valueOf(out.get("output").toString());
+	}
+
 }

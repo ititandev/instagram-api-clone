@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 import org.ititandev.mapper.PhotoMapper;
 import org.ititandev.mapper.UserPageMapper;
 import org.ititandev.model.Photo;
-import org.ititandev.model.UserPage;
+import org.ititandev.model.ProfilePage;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -81,10 +81,13 @@ public class PhotoDAO {
 		return jdbcTemplate.queryForList(sql, filename).get(0).get("username").toString();
 	}
 
-	public UserPage getProfile(String username) {
+	public ProfilePage getProfile(String username, String currentUser) {
 		String sql = "SELECT name, ? AS username, get_avatar(?) AS avatar_filename, get_photo_num(?) AS photo_num,"
-				+ "get_following_num(?) AS following_num, get_follower_num(?) AS follower_num FROM account WHERE username = ?";
-		List<UserPage> result = jdbcTemplate.query(sql, new Object[] { username, username, username, username, username, username },
+				+ "get_following_num(?) AS following_num, get_follower_num(?) AS follower_num, check_follow(?, ?) AS following, "
+				+ "biography, website FROM account LEFT JOIN profile ON account.username = profile.username "
+				+ "WHERE account. username = ?";
+		List<ProfilePage> result = jdbcTemplate.query(sql,
+				new Object[] { username, username, username, username, username, currentUser, username, username },
 				new UserPageMapper());
 		if (result.size() == 1)
 			return result.get(0);
@@ -94,7 +97,8 @@ public class PhotoDAO {
 
 	public List<Photo> getPhoto(String username, int start, int limit) {
 		String sql = "SELECT photo_id, caption, filename, datetime_upload, datetime_update, location, username, "
-				+ "get_avatar(username) AS avatar_filename, get_like_num(photo_id) AS like_num FROM photo "
+				+ "get_avatar(username) AS avatar_filename, get_like_num(photo_id) AS like_num, "
+				+ "get_comment_num(photo_id) AS comment_num FROM photo "
 				+ "LEFT JOIN location ON photo.location_id = location.location_id "
 				+ "WHERE username = ? ORDER BY datetime_upload DESC LIMIT ?, ?";
 		return jdbcTemplate.query(sql, new Object[] { username, start, limit }, new PhotoMapper());

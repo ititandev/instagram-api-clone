@@ -3,7 +3,7 @@ package org.ititandev.controller;
 import org.ititandev.Application;
 import org.ititandev.dao.AccountDAO;
 import org.ititandev.dao.PhotoDAO;
-import org.ititandev.model.UserPage;
+import org.ititandev.model.ProfilePage;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,12 +15,12 @@ public class ProfileController {
 	static AccountDAO accountDAO = Application.context.getBean("AccountDAO", AccountDAO.class);
 
 	@GetMapping("/profile/{username}")
-	public UserPage getUserPage(@PathVariable("username") String username) {
+	public ProfilePage getUserPage(@PathVariable("username") String username) {
 		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
 		if (accountDAO.checkBlock(username, currentUser))
 			return null;
 		else {
-			UserPage userPage = photoDAO.getProfile(username);
+			ProfilePage userPage = photoDAO.getProfile(username, currentUser);
 			return userPage;
 		}
 	}
@@ -30,7 +30,7 @@ public class ProfileController {
 			@PathVariable("limit") int limit) {
 		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
 		if (accountDAO.checkPrivilege(username, currentUser))
-			return "private_acc";
+			return "Private account";
 		else {
 			return photoDAO.getPhoto(username, start, limit);
 		}

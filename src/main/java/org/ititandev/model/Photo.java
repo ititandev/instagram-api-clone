@@ -10,6 +10,7 @@ public class Photo {
 	String datetime_update;
 	String location;
 	String username;
+	String name;
 	String avatar_filename;
 	int like_num;
 	int comment_num;

@@ -1,12 +1,15 @@
 package org.ititandev.model;
 
-public class UserPage {
+public class ProfilePage {
 	String name;
 	String username;
 	String avatar_filename;
 	int photo_num;
 	int following_num;
 	int follower_num;
+	boolean following;
+	String biography;
+	String website;
 
 	public String getName() {
 		return name;
@@ -55,4 +58,29 @@ public class UserPage {
 	public void setFollower_num(int follower_num) {
 		this.follower_num = follower_num;
 	}
+
+	public boolean isFollowing() {
+		return following;
+	}
+
+	public void setFollowing(boolean following) {
+		this.following = following;
+	}
+
+	public String getBiography() {
+		return biography;
+	}
+
+	public void setBiography(String biography) {
+		this.biography = biography;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	
 }

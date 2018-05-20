@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -148,9 +149,15 @@ public class AccountController {
 		return check;
 	}
 
-	@GetMapping("/search/user/{keyword}")
-	public List<User> searchUser(@PathVariable("keyword") String keyword) {
+	@GetMapping(value = "/search/user", params= "search")
+	public List<User> searchUser(@RequestParam("search") String keyword) {
 		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
 		return accountDAO.searchUser(keyword, currentUser);
+	}
+	
+	@GetMapping("/follow/{username}")
+	public String follow(@PathVariable("username") String username) {
+		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
+		return "{\"follow_status\":\"" + accountDAO.follow(currentUser, username) + "\"}";
 	}
 }
