@@ -44,7 +44,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES ('a','a','manhpcpro@gmail.com',1,0,'2018-05-17 03:52:23','2018-05-17 03:52:23','a','d8dcee83d5a92e7e565e3101808c0e05'),('a1','a','manhpcpro@gmail.com',0,0,'2018-05-17 03:53:24','2018-05-17 03:53:24','a','99d8e2c567a7b6de4807eb0edff39fa7'),('a2','a','manhpcpro@gmail.com',1,0,'2018-05-17 04:03:43','2018-05-17 04:03:43','a','c6b20b0da7280419a5039732c4787714'),('a3','a','1611985@hcmut.edu.vn',1,0,'2018-05-17 04:05:33','2018-05-17 04:05:33','a','c02d7a773c0fd462917fda78120eba9b'),('c0','a','phanh@outlook.com',0,0,'2018-05-17 04:50:12','2018-05-17 04:50:12','Hoang Anh Pham','e96f0120319d6ef9509a1492e2c94370'),('HuongGiangLe1','huonggiang123','huonggiang@gmail.com',1,0,'2015-01-02 00:00:00','2014-12-22 00:00:00','Huong Giang',NULL),('Lancute11','Cutequaxa','Lankawaii@yahoo.com',0,0,'2016-05-03 00:00:00','2015-03-04 00:00:00','Lan Le Thi',NULL),('Minh98','123456','minh98sun2gmal.com',1,0,'2018-05-05 00:00:00','2018-05-05 00:00:00','Minh Nguyen',NULL),('NgocNhan123','NhanLolli','loliruletheworld@gmail.com',1,0,'2017-04-06 00:00:00','2014-03-05 00:00:00','Tran ngoc Duc Nhan',NULL),('PhamHoangAnh16','anhanhanh','phanh@outlook.com',1,0,'2018-05-05 00:00:00','2014-04-06 00:00:00','Hoang Anh Pham',NULL),('PhAnh16','anhanhanh','phanh@outlook.com',0,0,'2018-05-06 21:34:01','2018-05-06 21:34:01','Hoang Anh Pham','44d0d3548564c0de2e5a39397fe6213f'),('rgg35fsd','asfdfaf','fsfafafa',0,0,'2018-05-17 02:14:47','2018-05-17 02:14:47','fasff','e6b565379177738e01388704a94ff56a'),('t1','anhanhanh','phfanh@outlook.com',0,0,'2018-05-06 17:43:39','2018-05-06 17:43:39','Hoang Anh Pham','7d817053673ca4c2982010feb6ee381a'),('t10','anhanhanh','phfanh@outlook.com',0,0,'2018-05-07 11:05:33','2018-05-07 11:05:33','Hoang Anh Pham','106148b7b6a65d217f205c7bf25c2790'),('t2','anhanhanh','phfanh@outlook.com',0,0,'2018-05-06 17:43:43','2018-05-06 17:43:43','Hoang Anh Pham','eb976eee34e0b5c0910ad795f7c02b82'),('t3','anhanhanh','phfanh@outlook.com',0,0,'2018-05-06 17:43:46','2018-05-06 17:43:46','Hoang Anh Pham','1ad03c9a69005cd656ebc2c70e784ce7'),('t4','anhanhanh','phanh@outlook.com',0,0,'2018-05-07 10:18:45','2018-05-07 10:18:45','Hoang Anh Pham','f4d9d558f1bf5a5260d680ca99d51218'),('werwerewr','rerwr','ewrwe',0,0,'2018-05-17 02:28:01','2018-05-17 02:28:01','wer','476c7855372326f428a1dc77aa04fe92');
+INSERT INTO `account` VALUES ('a','a','manhpcpro@gmail.com',1,0,'2018-05-17 03:52:23','2018-05-17 03:52:23','a','d8dcee83d5a92e7e565e3101808c0e05'),('a1','a','Lankawaii@yahoo.com',1,0,'2016-05-03 00:00:00','2015-03-04 00:00:00','Lan Le Thi',NULL),('huonggiang123','huonggiang123','huonggiang@gmail.com',1,0,'2015-01-02 00:00:00','2014-12-22 00:00:00','Huong Giang',NULL),('Minh98','123456','minh98sun2gmal.com',1,0,'2018-05-05 00:00:00','2018-05-05 00:00:00','Minh Nguyen',NULL),('NgocNhan123','NhanLolli','loliruletheworld@gmail.com',1,0,'2017-04-06 00:00:00','2014-03-05 00:00:00','Tran ngoc Duc Nhan',NULL),('PhamHoangAnh16','anhanhanh','phanh@outlook.com',0,0,'2018-05-05 00:00:00','2014-04-06 00:00:00','Hoàng Anh Phạm',NULL),('rgg35fsd','asfdfaf','fsfafafa',0,0,'2018-05-17 02:14:47','2018-05-17 02:14:47','fasff','e6b565379177738e01388704a94ff56a'),('werwerewr','rerwr','ewrwe',0,0,'2018-05-17 02:28:01','2018-05-17 02:28:01','wer','476c7855372326f428a1dc77aa04fe92');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -93,7 +93,7 @@ CREATE TABLE `avatar` (
 
 LOCK TABLES `avatar` WRITE;
 /*!40000 ALTER TABLE `avatar` DISABLE KEYS */;
-INSERT INTO `avatar` VALUES (1,'HuongGiangLe1.jpg','HuongGiangLe1','2018-01-01 00:00:00'),(2,'Lancute11.jpg','Lancute11','2017-02-04 00:00:00'),(3,'Minh98.jpg','NgocNhan123','2018-03-02 00:00:00'),(4,'NgocNhan123.jpg','NgocNhan123','2016-03-12 00:00:00'),(5,'PhamHoangAnh16.jpg','PhamHoangAnh16','2018-12-11 00:00:00');
+INSERT INTO `avatar` VALUES (1,'HuongGiangLe1.jpg','huonggiang123','2018-01-01 00:00:00'),(2,'Lancute11.jpg','a1','2017-02-04 00:00:00'),(3,'Minh98.jpg','NgocNhan123','2018-03-02 00:00:00'),(4,'NgocNhan123.jpg','NgocNhan123','2016-03-12 00:00:00'),(5,'PhamHoangAnh16.jpg','PhamHoangAnh16','2018-12-11 00:00:00'),(6,'a.jpg','PhamHoangAnh16','2018-12-12 00:00:00');
 /*!40000 ALTER TABLE `avatar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +118,7 @@ CREATE TABLE `block` (
 
 LOCK TABLES `block` WRITE;
 /*!40000 ALTER TABLE `block` DISABLE KEYS */;
-INSERT INTO `block` VALUES ('Minh98','Lancute11','2018-01-01 00:00:00'),('PhamHoangAnh16','Minh98','2017-03-02 00:00:00');
+INSERT INTO `block` VALUES ('a','a','2018-05-19 22:49:54'),('Minh98','Lancute11','2018-01-01 00:00:00'),('PhamHoangAnh16','Minh98','2017-03-02 00:00:00');
 /*!40000 ALTER TABLE `block` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +149,7 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (1,'Commet gi do','2018-01-01 00:00:00','Minh98',2),(2,'lol choi','2017-06-04 00:00:00','HuongGiangLe1',4),(3,'aka na bobo','2018-03-02 00:00:00','Lancute11',5),(4,'wakanda forever','2018-02-04 00:00:00','Lancute11',6),(5,'holy moly','2018-04-03 00:00:00','NgocNhan123',7),(6,'holy bless','2018-02-04 00:00:00','PhamHoangAnh16',5),(7,'random','2018-02-03 00:00:00','PhamHoangAnh16',6),(8,'pRNG=psuedo','2018-02-12 00:00:00','HuongGiangLe1',4);
+INSERT INTO `comment` VALUES (1,'Commet gi do','2018-01-01 00:00:00','Minh98',2),(2,'lol choi','2017-06-04 00:00:00','huonggiang123',4),(3,'aka na bobo','2018-03-02 00:00:00','a1',5),(4,'wakanda forever','2018-02-04 00:00:00','a1',6),(5,'holy moly','2018-04-03 00:00:00','NgocNhan123',7),(6,'holy bless','2018-02-04 00:00:00','PhamHoangAnh16',5),(7,'random','2018-02-03 00:00:00','PhamHoangAnh16',6),(8,'pRNG=psuedo','2018-02-12 00:00:00','huonggiang123',4);
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -225,7 +225,7 @@ CREATE TABLE `follow` (
   KEY `fk_follow_username_idx` (`username2`),
   CONSTRAINT `fk_follow_username1` FOREIGN KEY (`username1`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_follow_username2` FOREIGN KEY (`username2`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +234,7 @@ CREATE TABLE `follow` (
 
 LOCK TABLES `follow` WRITE;
 /*!40000 ALTER TABLE `follow` DISABLE KEYS */;
-INSERT INTO `follow` VALUES (1,'HuongGiangLe1','Minh98','2017-01-03 00:00:00',NULL),(2,'HuongGiangLe1','PhamHoangAnh16','2017-03-31 00:00:00',NULL),(3,'Lancute11','HuongGiangLe1','2018-03-02 00:00:00',NULL),(4,'Minh98','PhamHoangAnh16','2018-03-01 00:00:00',NULL),(5,'NgocNhan123','PhamHoangAnh16','2017-12-03 00:00:00',NULL),(6,'PhamHoangAnh16','Minh98','2018-01-03 00:00:00',NULL),(7,'PhamHoangAnh16','NgocNhan123','2018-03-13 00:00:00',NULL);
+INSERT INTO `follow` VALUES (1,'huonggiang123','Minh98','2017-01-03 00:00:00',NULL),(2,'huonggiang123','PhamHoangAnh16','2017-03-31 00:00:00',NULL),(3,'a1','huonggiang123','2018-03-02 00:00:00',NULL),(4,'Minh98','PhamHoangAnh16','2018-03-01 00:00:00',NULL),(5,'NgocNhan123','PhamHoangAnh16','2017-12-03 00:00:00',NULL),(6,'PhamHoangAnh16','Minh98','2018-01-03 00:00:00',NULL),(7,'PhamHoangAnh16','NgocNhan123','2018-03-13 00:00:00',NULL),(42,'a','huonggiang123','2018-05-20 11:30:31',0),(43,'a','NgocNhan123','2018-05-20 11:30:43',0),(80,'a','PhamHoangAnh16','2018-05-20 16:10:45',0),(82,'a','Minh98','2018-05-20 20:07:45',0),(83,'a','a1','2018-05-20 23:34:18',0);
 /*!40000 ALTER TABLE `follow` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -309,7 +309,7 @@ CREATE TABLE `like` (
 
 LOCK TABLES `like` WRITE;
 /*!40000 ALTER TABLE `like` DISABLE KEYS */;
-INSERT INTO `like` VALUES (1,'HuongGiangLe1',5,'2018-01-03 00:00:00'),(2,'HuongGiangLe1',6,'2018-03-12 00:00:00'),(3,'Lancute11',1,'2018-01-30 00:00:00'),(4,'Minh98',3,'2018-04-21 00:00:00'),(5,'Minh98',4,'2017-03-01 00:00:00'),(6,'Minh98',7,'2018-03-16 00:00:00'),(7,'NgocNhan123',2,'2018-03-12 00:00:00'),(8,'PhamHoangAnh16',7,'2018-03-27 00:00:00');
+INSERT INTO `like` VALUES (1,'huonggiang123',5,'2018-01-03 00:00:00'),(2,'huonggiang123',6,'2018-03-12 00:00:00'),(3,'a1',1,'2018-01-30 00:00:00'),(4,'Minh98',3,'2018-04-21 00:00:00'),(5,'Minh98',4,'2017-03-01 00:00:00'),(6,'Minh98',7,'2018-03-16 00:00:00'),(7,'NgocNhan123',2,'2018-03-12 00:00:00'),(8,'PhamHoangAnh16',7,'2018-03-27 00:00:00');
 /*!40000 ALTER TABLE `like` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -391,7 +391,7 @@ CREATE TABLE `message` (
 
 LOCK TABLES `message` WRITE;
 /*!40000 ALTER TABLE `message` DISABLE KEYS */;
-INSERT INTO `message` VALUES (1,'PhamHoangAnh16','Minh98','i love u xoxo',NULL,'2018-01-01 00:00:00',NULL,1),(2,'Minh98','PhamHoangAnh16','i dont care lol',NULL,'2018-01-01 00:00:00',NULL,1),(3,'PhamHoangAnh16','Minh98','nani really',NULL,'2018-01-01 00:00:00',NULL,1),(4,'NgocNhan123','HuongGiangLe1','tra tien day',NULL,'2018-04-02 00:00:00',NULL,1),(5,'Lancute11','Minh98','di an may',NULL,'2018-01-03 00:00:00',NULL,0);
+INSERT INTO `message` VALUES (1,'PhamHoangAnh16','Minh98','i love u xoxo',NULL,'2018-01-01 00:00:00',NULL,1),(2,'Minh98','PhamHoangAnh16','i dont care lol',NULL,'2018-01-01 00:00:00',NULL,1),(3,'PhamHoangAnh16','Minh98','nani really',NULL,'2018-01-01 00:00:00',NULL,1),(4,'NgocNhan123','huonggiang123','tra tien day',NULL,'2018-04-02 00:00:00',NULL,1),(5,'a1','Minh98','di an may',NULL,'2018-01-03 00:00:00',NULL,0);
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -411,7 +411,7 @@ CREATE TABLE `noti` (
   PRIMARY KEY (`noti_id`),
   KEY `fk_noti_username_idx` (`username_rev`),
   CONSTRAINT `fk_noti_username` FOREIGN KEY (`username_rev`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -420,6 +420,7 @@ CREATE TABLE `noti` (
 
 LOCK TABLES `noti` WRITE;
 /*!40000 ALTER TABLE `noti` DISABLE KEYS */;
+INSERT INTO `noti` VALUES (2,0,2,'PhamHoangAnh16',8),(3,0,2,'PhamHoangAnh16',11),(4,0,2,'PhamHoangAnh16',12),(5,0,2,'PhamHoangAnh16',13),(6,0,2,'PhamHoangAnh16',14),(7,0,2,'PhamHoangAnh16',15),(8,0,2,'PhamHoangAnh16',16),(9,0,2,'PhamHoangAnh16',17),(10,0,2,'PhamHoangAnh16',18),(11,0,2,'PhamHoangAnh16',19),(12,0,2,'PhamHoangAnh16',20),(13,0,2,'PhamHoangAnh16',21),(14,0,2,'PhamHoangAnh16',22),(15,0,2,'PhamHoangAnh16',23),(16,0,2,'PhamHoangAnh16',24),(17,0,2,'PhamHoangAnh16',25),(18,0,2,'PhamHoangAnh16',26),(19,0,2,'PhamHoangAnh16',27),(20,0,2,'PhamHoangAnh16',28),(21,0,2,'PhamHoangAnh16',29),(22,0,2,'PhamHoangAnh16',30),(23,0,2,'PhamHoangAnh16',31),(24,0,2,'PhamHoangAnh16',32),(25,0,2,'PhamHoangAnh16',33),(26,0,2,'PhamHoangAnh16',34),(27,0,2,'PhamHoangAnh16',35),(28,0,2,'PhamHoangAnh16',36),(29,0,2,'PhamHoangAnh16',37),(30,0,2,'PhamHoangAnh16',38),(31,0,2,'PhamHoangAnh16',39),(32,0,2,'PhamHoangAnh16',40),(33,0,2,'PhamHoangAnh16',41),(34,0,2,'huonggiang123',42),(35,0,2,'NgocNhan123',43),(36,0,2,'a1',44),(37,0,2,'a1',45),(38,0,2,'a1',46),(39,0,2,'a1',47),(40,0,2,'a1',48),(41,0,2,'a1',49),(42,0,2,'a1',50),(43,0,2,'a1',51),(44,0,2,'a1',52),(45,0,2,'a1',53),(46,0,2,'a1',54),(47,0,2,'a1',55),(48,0,2,'a1',56),(49,0,2,'a1',57),(50,0,2,'a1',58),(51,0,2,'a1',59),(52,0,2,'a1',60),(53,0,2,'a1',61),(54,0,2,'a1',62),(55,0,2,'a1',63),(56,0,2,'a1',64),(57,0,2,'a1',65),(58,0,2,'a1',66),(59,0,2,'a1',67),(60,0,2,'a1',68),(61,0,2,'a1',69),(62,0,2,'a1',70),(63,0,2,'a1',71),(64,0,2,'a1',72),(65,0,2,'a1',73),(66,0,2,'PhamHoangAnh16',74),(67,0,2,'PhamHoangAnh16',75),(68,0,2,'a1',76),(69,0,2,'a1',77),(70,0,2,'PhamHoangAnh16',78),(71,0,2,'PhamHoangAnh16',79),(72,0,2,'PhamHoangAnh16',80),(73,0,2,'a1',81),(74,0,2,'Minh98',82),(75,0,2,'a1',83);
 /*!40000 ALTER TABLE `noti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -458,7 +459,7 @@ CREATE TABLE `photo` (
 
 LOCK TABLES `photo` WRITE;
 /*!40000 ALTER TABLE `photo` DISABLE KEYS */;
-INSERT INTO `photo` VALUES (1,'vo va vo van','Lancute11_1.jpg','2017-01-01 00:00:00','2017-03-01 00:00:00',4,'CanonD90','120',NULL,800,NULL,NULL,'Lancute11'),(2,'biet chet lien','Lancute11_2.jpg','2018-02-01 00:00:00','2018-03-01 00:00:00',5,'Nikon1000','122',NULL,123,NULL,NULL,'Lancute11'),(3,'thoi dep','PhamHoangAnh16_1.jpg','2017-01-03 00:00:00','2018-02-03 00:00:00',5,'Fuji11',NULL,NULL,NULL,NULL,NULL,'PhamHoangAnh16'),(4,'aa','HuongGiangLe1_1.jpg','2017-03-01 00:00:00','2017-03-04 00:00:00',2,'NIKON',NULL,NULL,NULL,NULL,NULL,'HuongGiangLe1'),(5,'final loli','NgocNhan123_1.jpg','2017-02-01 00:00:00','2017-05-03 00:00:00',4,'CANON',NULL,NULL,NULL,NULL,NULL,'NgocNhan123'),(6,'ahiihi','Minh98_1.jpg','2017-01-05 00:00:00','2017-08-04 00:00:00',3,'SONY','8','1',900,3,1,'Minh98'),(7,'test choi','Minh98_2.jpg','2018-04-05 00:00:00','2018-04-05 00:00:00',5,'SONY',NULL,NULL,NULL,NULL,NULL,'Minh98');
+INSERT INTO `photo` VALUES (1,'vo va vo van','1.jpg','2017-01-01 00:00:00','2017-03-01 00:00:00',4,'CanonD90','120',NULL,800,NULL,NULL,'a1'),(2,'biet chet lien','2.jpg','2018-02-01 00:00:00','2018-03-01 00:00:00',5,'Nikon1000','122',NULL,123,NULL,NULL,'a1'),(3,'thoi dep','3.jpg','2017-01-03 00:00:00','2018-02-03 00:00:00',5,'Fuji11',NULL,NULL,NULL,NULL,NULL,'PhamHoangAnh16'),(4,'aa','HuongGiangLe1_1.jpg','2017-03-01 00:00:00','2017-03-04 00:00:00',2,'NIKON',NULL,NULL,NULL,NULL,NULL,'huonggiang123'),(5,'final loli','NgocNhan123_1.jpg','2017-02-01 00:00:00','2017-05-03 00:00:00',4,'CANON',NULL,NULL,NULL,NULL,NULL,'NgocNhan123'),(6,'ahiihi','Minh98_1.jpg','2017-01-05 00:00:00','2017-08-04 00:00:00',3,'SONY','8','1',900,3,1,'Minh98'),(7,'test choi','Minh98_2.jpg','2018-04-05 00:00:00','2018-04-05 00:00:00',5,'SONY',NULL,NULL,NULL,NULL,NULL,'Minh98');
 /*!40000 ALTER TABLE `photo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -486,7 +487,7 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES ('a',NULL,NULL,NULL,NULL),('a1',NULL,NULL,NULL,NULL),('a2',NULL,NULL,NULL,NULL),('a3',NULL,NULL,NULL,NULL),('c0',NULL,NULL,NULL,NULL),('HuongGiangLe1','null','016773355123','female',NULL),('Lancute11','aka','0904470694','male','www.google.com'),('Minh98',NULL,'0921243335','male',NULL),('NgocNhan123','loli','09235215335','female','www.loliruletheworld.org'),('PhamHoangAnh16','beautiful girl','113','female',NULL),('rgg35fsd',NULL,NULL,NULL,NULL),('werwerewr',NULL,NULL,NULL,NULL);
+INSERT INTO `profile` VALUES ('a',NULL,NULL,NULL,NULL),('a1','aka','0904470694','male','www.google.com'),('huonggiang123','null','016773355123','female',NULL),('Minh98',NULL,'0921243335','male',NULL),('NgocNhan123','loli','09235215335','female','www.loliruletheworld.org'),('PhamHoangAnh16','beautiful girl','113','female','itian.com'),('rgg35fsd',NULL,NULL,NULL,NULL),('werwerewr',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -517,7 +518,7 @@ CREATE TABLE `reply` (
 
 LOCK TABLES `reply` WRITE;
 /*!40000 ALTER TABLE `reply` DISABLE KEYS */;
-INSERT INTO `reply` VALUES (1,'2018-01-01 00:00:00','rep choi',1,'PhamHoangAnh16'),(2,'2018-02-04 00:00:00','you loser',4,'HuongGiangLe1'),(3,'2018-02-12 00:00:00','true random',8,'Minh98'),(4,NULL,'them moi',2,'HuongGiangLe1');
+INSERT INTO `reply` VALUES (1,'2018-01-01 00:00:00','rep choi',1,'PhamHoangAnh16'),(2,'2018-02-04 00:00:00','you loser',4,'huonggiang123'),(3,'2018-02-12 00:00:00','true random',8,'Minh98'),(4,NULL,'them moi',2,'huonggiang123');
 /*!40000 ALTER TABLE `reply` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -597,7 +598,7 @@ CREATE TABLE `save` (
 
 LOCK TABLES `save` WRITE;
 /*!40000 ALTER TABLE `save` DISABLE KEYS */;
-INSERT INTO `save` VALUES ('Minh98',2),('PhamHoangAnh16',2),('PhamHoangAnh16',3),('NgocNhan123',5),('Minh98',6),('HuongGiangLe1',7);
+INSERT INTO `save` VALUES ('Minh98',2),('PhamHoangAnh16',2),('PhamHoangAnh16',3),('NgocNhan123',5),('Minh98',6),('huonggiang123',7);
 /*!40000 ALTER TABLE `save` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -624,7 +625,7 @@ CREATE TABLE `setting` (
 
 LOCK TABLES `setting` WRITE;
 /*!40000 ALTER TABLE `setting` DISABLE KEYS */;
-INSERT INTO `setting` VALUES ('a',NULL,1),('a1',NULL,1),('a2',NULL,1),('a3',NULL,1),('c0',NULL,1),('HuongGiangLe1','en',0),('Lancute11','en',1),('Minh98','vn',0),('NgocNhan123','english',1),('PhamHoangAnh16','vietnamese',1),('rgg35fsd',NULL,1),('werwerewr',NULL,1);
+INSERT INTO `setting` VALUES ('a',NULL,1),('a1','en',1),('huonggiang123','en',0),('Minh98','vn',0),('NgocNhan123','english',1),('PhamHoangAnh16','vietnamese',1),('rgg35fsd',NULL,1),('werwerewr',NULL,1);
 /*!40000 ALTER TABLE `setting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -652,7 +653,7 @@ CREATE TABLE `story` (
 
 LOCK TABLES `story` WRITE;
 /*!40000 ALTER TABLE `story` DISABLE KEYS */;
-INSERT INTO `story` VALUES (1,'2018-01-22 00:00:00','HuongGiangLe1_Story1.png','HuongGiangLe1'),(2,'2018-02-12 00:00:00','NgocNhan123_Story1.png','NgocNhan123'),(3,'2018-03-13 00:00:00','PhamHoangAnh16_Story1.png','PhamHoangAnh16'),(4,'2018-04-13 00:00:00','PhamHoangAnh16_Story2.png','PhamHoangAnh16');
+INSERT INTO `story` VALUES (1,'2018-01-22 00:00:00','HuongGiangLe1_Story1.png','huonggiang123'),(2,'2018-02-12 00:00:00','NgocNhan123_Story1.png','NgocNhan123'),(3,'2018-03-13 00:00:00','PhamHoangAnh16_Story1.png','PhamHoangAnh16'),(4,'2018-04-13 00:00:00','PhamHoangAnh16_Story2.png','PhamHoangAnh16');
 /*!40000 ALTER TABLE `story` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -727,7 +728,7 @@ CREATE TABLE `tag_in_photo` (
 
 LOCK TABLES `tag_in_photo` WRITE;
 /*!40000 ALTER TABLE `tag_in_photo` DISABLE KEYS */;
-INSERT INTO `tag_in_photo` VALUES (1,1,2,'NgocNhan123',4),(2,4,5,'HuongGiangLe1',7),(3,4,4,'Lancute11',5),(4,13,43,'NgocNhan123',4);
+INSERT INTO `tag_in_photo` VALUES (1,1,2,'NgocNhan123',4),(2,4,5,'huonggiang123',7),(3,4,4,'a1',5),(4,13,43,'NgocNhan123',4);
 /*!40000 ALTER TABLE `tag_in_photo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -800,6 +801,66 @@ DELIMITER ;
 --
 -- Dumping routines for database 'instagram'
 --
+/*!50003 DROP FUNCTION IF EXISTS `check_block` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `check_block`(username1 VARCHAR(50),username2 VARCHAR(50)) RETURNS tinyint(1)
+BEGIN
+	DECLARE temp1 INT;
+    DECLARE temp2 INT;
+    DECLARE output BOOLEAN;
+    
+    SELECT COUNT(*) INTO temp1
+    FROM block AS F
+    WHERE F.username1=username1 AND F.username2=username2;
+    
+    SELECT COUNT(*) INTO temp2
+    FROM block AS B
+    WHERE B.username1=username2 AND B.username2=username1;
+    
+    IF temp1 = 1 OR temp2 = 1 THEN
+		SET output=true;
+	ELSE
+		SET output=false;
+	END IF;
+    
+RETURN output;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `check_follow` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `check_follow`(username1 VARCHAR(50),username2 VARCHAR(50)) RETURNS tinyint(1)
+BEGIN
+	DECLARE output BOOLEAN;
+	SELECT COUNT(*) FROM follow WHERE follow.username1 = username1 AND follow.username2 = username2
+    INTO output;
+    
+RETURN output;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP FUNCTION IF EXISTS `get_avatar` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1077,7 +1138,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `check_block` */;
+/*!50003 DROP PROCEDURE IF EXISTS `check_block_proc` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1087,7 +1148,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `check_block`(IN username1 VARCHAR(50),IN username2 VARCHAR(50),OUT output boolean)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `check_block_proc`(IN username1 VARCHAR(50),IN username2 VARCHAR(50),OUT output boolean)
 BEGIN
 	DECLARE temp1 INT;
     DECLARE temp2 INT;
@@ -1184,12 +1245,45 @@ BEGIN
     DECLARE temp3 BOOLEAN;
 	CALL check_follow(username1, username2, temp1);
     CALL check_private_acc(username2, temp2);
-    CALL check_block(username1, username2, temp3);
+    CALL check_block_proc(username1, username2, temp3);
     
     IF NOT ((temp1 = false AND temp2 = true) OR temp3) THEN 
 		SET output=TRUE;
 	ELSE
 		SET output= FALSE;
+	END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `set_follow` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `set_follow`(IN user1 VARCHAR(50),IN user2 VARCHAR(50),OUT output tinyint(1))
+BEGIN
+    DECLARE temp INT;
+    SELECT COUNT(*) INTO temp
+    FROM `follow` AS F
+    WHERE username1=user1 AND username2=user2;
+    
+    SET output = TRUE;
+    
+    IF temp = 1 THEN
+		DELETE FROM follow WHERE username1=user1 AND username2=user2;
+		SET output=FALSE;
+	ELSE
+        INSERT INTO `follow` (username1, username2, datetime)
+        VALUES (user1, user2, NOW());
+		SET output=TRUE;
 	END IF;
 END ;;
 DELIMITER ;
@@ -1207,4 +1301,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-18 19:46:21
+-- Dump completed on 2018-05-21  2:30:14
