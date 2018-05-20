@@ -7,9 +7,11 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.ititandev.mapper.PhotoMapper;
+import org.ititandev.mapper.StoryMapper;
 import org.ititandev.mapper.UserPageMapper;
 import org.ititandev.model.Photo;
 import org.ititandev.model.ProfilePage;
+import org.ititandev.model.Story;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -121,6 +123,14 @@ public class PhotoDAO {
 			}
 		}, keyHolder);
 		return keyHolder.getKey().intValue();
+	}
+
+	public List<Story> getStory(String username, int start, int limit) {
+		String sql = "SELECT story_id, filename, datetime, username, "
+				+ "get_avatar(username) AS avatar_filename, get_name(username) "
+				+ "WHERE HOUR(NOW() - datetime) < 24 AND username IN (SELECT username2 FROM follow WHERE username1 = ?) "
+				+ "ORDER BY datetime DESC LIMIT ?, ?";
+		return jdbcTemplate.query(sql, new Object[] { username, start, limit }, new StoryMapper());
 	}
 
 }

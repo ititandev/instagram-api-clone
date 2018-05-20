@@ -10,10 +10,10 @@ import org.ititandev.dao.ReplyDAO;
 import org.ititandev.model.Comment;
 import org.ititandev.model.Photo;
 import org.ititandev.model.Reply;
+import org.ititandev.model.Story;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -82,9 +82,9 @@ public class PhotoController {
 			return null;
 	}
 
-	// @PutMapping("/photo/{photo_id}")
-	@PostMapping("/test/{param}")
-	public String test(@PathVariable("param") String param) {
-		return null;
+	@GetMapping("/story/{start}/{limit}") 
+	public List<Story> getStory(@PathVariable("start") int start, @PathVariable("limit") int limit){
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		return photoDAO.getStory(username, start, limit);
 	}
 }
