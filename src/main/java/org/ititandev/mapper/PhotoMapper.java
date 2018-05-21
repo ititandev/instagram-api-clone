@@ -19,6 +19,7 @@ public class PhotoMapper implements RowMapper<Photo>{
 		photo.setAvatar_filename(rs.getString("avatar_filename"));
 		photo.setLike_num(rs.getInt("like_num"));
 		photo.setComment_num(rs.getInt("comment_num"));
+		photo.setName(rs.getString("name"));
 		return photo;
 	}
 }

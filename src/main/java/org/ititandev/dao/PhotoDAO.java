@@ -100,7 +100,7 @@ public class PhotoDAO {
 	public List<Photo> getPhoto(String username, int start, int limit) {
 		String sql = "SELECT photo_id, caption, filename, datetime_upload, datetime_update, location, username, "
 				+ "get_avatar(username) AS avatar_filename, get_like_num(photo_id) AS like_num, "
-				+ "get_comment_num(photo_id) AS comment_num FROM photo "
+				+ "get_comment_num(photo_id) AS comment_num, get_name(username) AS name FROM photo "
 				+ "LEFT JOIN location ON photo.location_id = location.location_id "
 				+ "WHERE username = ? ORDER BY datetime_upload DESC LIMIT ?, ?";
 		return jdbcTemplate.query(sql, new Object[] { username, start, limit }, new PhotoMapper());
@@ -127,7 +127,7 @@ public class PhotoDAO {
 
 	public List<Story> getStory(String username, int start, int limit) {
 		String sql = "SELECT story_id, filename, datetime, username, "
-				+ "get_avatar(username) AS avatar_filename, get_name(username) "
+				+ "get_avatar(username) AS avatar_filename, get_name(username) AS name FROM story "
 				+ "WHERE HOUR(NOW() - datetime) < 24 AND username IN (SELECT username2 FROM follow WHERE username1 = ?) "
 				+ "ORDER BY datetime DESC LIMIT ?, ?";
 		return jdbcTemplate.query(sql, new Object[] { username, start, limit }, new StoryMapper());

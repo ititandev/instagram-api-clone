@@ -29,10 +29,10 @@ public class ProfileController {
 	public Object getPhoto(@PathVariable("username") String username, @PathVariable("start") int start,
 			@PathVariable("limit") int limit) {
 		String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
-		if (accountDAO.checkPrivilege(username, currentUser))
-			return "Private account";
-		else {
+		if (accountDAO.checkPrivilege(currentUser, username))
 			return photoDAO.getPhoto(username, start, limit);
+		else {
+			return "Private account";
 		}
 	}
 }
