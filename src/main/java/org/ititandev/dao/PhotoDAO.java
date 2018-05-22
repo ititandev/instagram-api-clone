@@ -30,7 +30,7 @@ public class PhotoDAO {
 	public List<Photo> getNewfeed(String username, int start, int limit) {
 		String sql = "SELECT photo_id, caption, filename, datetime_upload, datetime_update, location, username, "
 				+ "get_avatar(username) AS avatar_filename, get_like_num(photo_id) AS like_num, "
-				+ "get_comment_num(photo_id) AS comment_num FROM photo "
+				+ "get_comment_num(photo_id) AS comment_num, get_name(username) AS name FROM photo "
 				+ "LEFT JOIN location ON photo.location_id = location.location_id "
 				+ "WHERE username IN (SELECT username2 FROM follow WHERE username1 = ?) "
 				+ "ORDER BY datetime_upload DESC LIMIT ?, ?";
