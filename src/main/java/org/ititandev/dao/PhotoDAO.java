@@ -108,7 +108,7 @@ public class PhotoDAO {
 
 	public int insertPhoto(Photo photo) {
 		String sql = "INSERT INTO photo (caption, filename, location_id, username) "
-				+ "VALUES (?, ?, get_location_id(?),MAX(photo_id) + 1)";
+				+ "VALUES (?, '0', get_location_id(?), ?)";
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 
 		jdbcTemplate.update(new PreparedStatementCreator() {
@@ -116,15 +116,18 @@ public class PhotoDAO {
 			public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
 				PreparedStatement ps = connection.prepareStatement(sql, new String[] { "photo_id" });
 				ps.setString(1, photo.getCaption());
-				ps.setString(2, photo.getFilename());
-				ps.setString(3, photo.getLocation());
-				ps.setString(4, photo.getUsername());
+				ps.setString(2, photo.getLocation());
+				ps.setString(3, photo.getUsername());
 				return ps;
 			}
 		}, keyHolder);
 		return keyHolder.getKey().intValue();
 	}
-
+	
+	public void setPhotoFilename(String filename, int photo_id) {
+		String sql = "UPDATE photo SET filename = ? WHERE photo_id = ?";
+		jdbcTemplate.update(sql, filename, photo_id);
+	}
 	public List<Story> getStory(String username, int start, int limit) {
 		String sql = "SELECT story_id, filename, datetime, username, "
 				+ "get_avatar(username) AS avatar_filename, get_name(username) AS name FROM story "

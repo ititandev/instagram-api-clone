@@ -29,9 +29,10 @@ public class UploadController {
 		photo.setUsername(username);
 		photo.setCaption(caption);
 		photo.setLocation(location);
+		
 
-		int key = photoDAO.insertPhoto(photo);
-		String filename = key + ".jpg";
+		int photo_id = photoDAO.insertPhoto(photo);
+		String filename = String.valueOf(photo_id + 100) + ".jpg";
 		try {
 			byte[] bytes = file.getBytes();
 			File dir = new File(Config.getConfig("photo.dir"));
@@ -41,6 +42,7 @@ public class UploadController {
 			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
 			stream.write(bytes);
 			stream.close();
+			photoDAO.setPhotoFilename(filename, photo_id);
 			System.out.println("[ITitan] Upload PHOTO SUCCESS file: " + serverFile.getAbsolutePath());
 			return "{\"result\":\"success\"}";
 		} catch (Exception e) {

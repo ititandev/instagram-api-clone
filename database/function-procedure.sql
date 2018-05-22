@@ -336,7 +336,8 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `check_block_proc`(IN username1 VARCHAR(50),IN username2 VARCHAR(50),OUT output boolean)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `check_block_proc`(IN username1 VARCHAR(50),IN username2 VARCHAR(50),
+															   OUT output boolean)
 BEGIN
 	DECLARE temp1 INT;
     DECLARE temp2 INT;
@@ -370,7 +371,8 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `check_follow`(IN username1 VARCHAR(50),IN username2 VARCHAR(50),OUT output boolean)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `check_follow`(IN username1 VARCHAR(50),IN username2 VARCHAR(50),
+														   OUT output boolean)
 BEGIN
 	DECLARE dem INT;
     SELECT COUNT(*) INTO dem
@@ -426,7 +428,8 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `check_user_to_photo`(IN username1 VARCHAR(50), IN username2 VARCHAR(50), OUT output BOOLEAN)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `check_user_to_photo`(IN username1 VARCHAR(50), IN username2 VARCHAR(50), 
+																  OUT output BOOLEAN)
 BEGIN
 	DECLARE temp1 BOOLEAN;
     DECLARE temp2 BOOLEAN;
@@ -456,7 +459,8 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `set_follow`(IN user1 VARCHAR(50),IN user2 VARCHAR(50),OUT output tinyint(1))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `set_follow`(IN user1 VARCHAR(50),IN user2 VARCHAR(50),
+														 OUT output tinyint(1))
 BEGIN
     DECLARE temp INT;
     SELECT COUNT(*) INTO temp
@@ -472,6 +476,26 @@ BEGIN
         INSERT INTO `follow` (username1, username2, datetime)
         VALUES (user1, user2, NOW());
 		SET output=TRUE;
+	END IF;
+END ;;
+DELIMITER ;
+
+
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `set_like`(IN usern VARCHAR(50),IN pphoto_id INT,
+													   OUT output tinyint(1))
+BEGIN
+    DECLARE temp INT;
+    SELECT COUNT(*) INTO temp
+    FROM `like`
+    WHERE username = usern AND photo_id = pphoto_id;
+    
+    IF temp = 1 THEN
+		DELETE FROM `like` WHERE username = usern AND photo_id = pphoto_id;
+		SET output = FALSE;
+	ELSE
+        INSERT INTO `like` (username, photo_id, datetime) VALUES (usern, pphoto_id, NOW());
+		SET output = TRUE;
 	END IF;
 END ;;
 DELIMITER ;
