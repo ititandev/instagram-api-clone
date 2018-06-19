@@ -42,7 +42,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.GET, "/verify/resend/{username}").permitAll()
 				.antMatchers(HttpMethod.GET, "/verify/{username}/{hash}").permitAll()
 				.antMatchers(HttpMethod.GET, "/avatar").permitAll()
-				.anyRequest().authenticated().and()
+				.antMatchers(HttpMethod.POST, "/kiet").permitAll()
+//				.anyRequest().authenticated().and()
+				.and()
 			.addFilterBefore(new JWTLoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
 			.addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
 			.headers().cacheControl();

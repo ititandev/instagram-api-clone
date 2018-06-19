@@ -10,6 +10,7 @@ USE `instagram`;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
  SET NAMES utf8 ;
+ SET GLOBAL log_bin_trust_function_creators = 1;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -804,6 +805,8 @@ DELIMITER ;
 
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+
+
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` FUNCTION `check_block`(username1 VARCHAR(50),username2 VARCHAR(50)) RETURNS tinyint(1)
 BEGIN
