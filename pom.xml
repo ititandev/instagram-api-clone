@@ -25,7 +25,7 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -113,5 +113,5 @@
 	</build>
 
 
-	<artifactId>instagram-backend-clone</artifactId>
+	<artifactId>instagram-api-clone</artifactId>
 </project>
