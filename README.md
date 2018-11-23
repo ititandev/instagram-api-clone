@@ -1,5 +1,5 @@
 ## RESTful Webservice for Instagram Android App Clone
-https://github.com/ititandev/threadripper-chat-api
+https://github.com/ititandev/instagram-android-using-api-clone
 
 ## App Snapshots
 <p align="center">
