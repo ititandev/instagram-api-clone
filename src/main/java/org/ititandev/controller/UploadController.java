@@ -5,16 +5,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
-
-import javax.mail.Multipart;
 
 import org.ititandev.Application;
-import org.ititandev.config.Config;
 import org.ititandev.dao.PhotoDAO;
 import org.ititandev.model.Photo;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.JsonNode;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,11 +22,22 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 public class UploadController {
-	static PhotoDAO photoDAO = Application.context.getBean("PhotoDAO", PhotoDAO.class);
+
+	@Autowired
+	private PhotoDAO photoDAO;
+
+	@Value("${photo.dir}")
+	private String photoDir;
+
+	@Value("${avatar.dir}")
+	private String avatarDir;
+
+	@Value("${story.dir}")
+	private String storyDir;
 
 	@PostMapping("/photo")
 	String photo(@RequestParam("file") MultipartFile file, @RequestParam("caption") String caption,
-			@RequestParam("location") String location) throws JSONException {
+			@RequestParam("location") String location) throws Exception {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		Photo photo = new Photo();
 		photo.setUsername(username);
@@ -40,7 +48,7 @@ public class UploadController {
 		String filename = String.valueOf(photo_id + 100) + ".jpg";
 		try {
 			byte[] bytes = file.getBytes();
-			File dir = new File(Config.getConfig("photo.dir"));
+			File dir = new File(photoDir);
 			if (!dir.exists())
 				dir.mkdirs();
 			File serverFile = new File(dir.getAbsolutePath() + File.separator + filename);
@@ -57,13 +65,13 @@ public class UploadController {
 	}
 
 	@PostMapping("/avatar")
-	String avatar(@RequestParam("file") MultipartFile file) throws JSONException {
+	String avatar(@RequestParam("file") MultipartFile file) throws Exception {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
 		String filename = "test.jpg";
 		try {
 			byte[] bytes = file.getBytes();
-			File dir = new File(Config.getConfig("avatar.dir"));
+			File dir = new File(avatarDir);
 			if (!dir.exists())
 				dir.mkdirs();
 			File serverFile = new File(dir.getAbsolutePath() + File.separator + filename);
@@ -79,13 +87,13 @@ public class UploadController {
 	}
 
 	@PostMapping("/story")
-	String story(@RequestParam("file") MultipartFile file) throws JSONException {
+	String story(@RequestParam("file") MultipartFile file) throws Exception {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
 		String filename = "test.jpg";
 		try {
 			byte[] bytes = file.getBytes();
-			File dir = new File(Config.getConfig("story.dir"));
+			File dir = new File(storyDir);
 			if (!dir.exists())
 				dir.mkdirs();
 			File serverFile = new File(dir.getAbsolutePath() + File.separator + filename);
@@ -106,7 +114,7 @@ public class UploadController {
 		String filename = "file";
 		try {
 			byte[] bytes = file.getBytes();
-			File dir = new File(Config.getConfig("story.dir"));
+			File dir = new File(storyDir);
 			if (!dir.exists())
 				dir.mkdirs();
 			File serverFile = new File("D:" + File.separator + filename);

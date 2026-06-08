@@ -6,14 +6,18 @@ import javax.sql.DataSource;
 
 import org.ititandev.mapper.ReplyMapper;
 import org.ititandev.model.Reply;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ReplyDAO {
-	@SuppressWarnings("unused")
-	private DataSource dataSource;
-	private JdbcTemplate jdbcTemplate;
 
-	public void setDataSource(DataSource dataSource) {
+	private final DataSource dataSource;
+	private final JdbcTemplate jdbcTemplate;
+
+	@Autowired
+	public ReplyDAO(DataSource dataSource) {
 		this.dataSource = dataSource;
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}

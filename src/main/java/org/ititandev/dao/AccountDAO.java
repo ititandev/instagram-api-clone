@@ -6,23 +6,26 @@ import java.util.Random;
 
 import javax.sql.DataSource;
 
-import org.ititandev.config.Config;
 import org.ititandev.model.User;
 import org.ititandev.mapper.AccountMapper;
 import org.ititandev.mapper.UserMapper;
 import org.ititandev.model.Account;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class AccountDAO {
-	@SuppressWarnings("unused")
-	private DataSource dataSource;
-	private JdbcTemplate jdbcTemplate;
 
-	public void setDataSource(DataSource dataSource) {
+	private final JdbcTemplate jdbcTemplate;
+	private final DataSource dataSource;
+
+	@Autowired
+	public AccountDAO(DataSource dataSource) {
 		this.dataSource = dataSource;
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
@@ -36,8 +39,8 @@ public class AccountDAO {
 	public int insert(String username, String password, String email, String name) {
 		String sql = "INSERT INTO account VALUES (?, ?, ?, 0, 0, NOW(), NOW(), ?, ?)";
 		Random rand = new Random();
-		Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-		String verify_code = encoder.encodePassword(String.valueOf(rand.nextInt(1000000)), "hash");
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String verify_code = encoder.encode(String.valueOf(rand.nextInt(1000000)));
 		return jdbcTemplate.update(sql, username, password, email, name, verify_code);
 	}
 
@@ -95,10 +98,10 @@ public class AccountDAO {
 		return "Verify unsuccessfully";
 	}
 
-	public String getVerifyLink(String username) {
+	public String getVerifyLink(String username, String hostname) {
 		String sql = "SELECT verify_code FROM account WHERE username = ?";
 		Map<String, Object> result = jdbcTemplate.queryForList(sql, username).get(0);
-		return Config.getConfig("hostname") + "/verify/" + username + "/" + result.get("verify_code");
+		return hostname + "/verify/" + username + "/" + result.get("verify_code");
 	}
 
 	public String getEmail(String username) {

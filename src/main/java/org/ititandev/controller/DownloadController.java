@@ -8,12 +8,13 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.ititandev.Application;
-import org.ititandev.config.Config;
 import org.ititandev.dao.AccountDAO;
 import org.ititandev.dao.PhotoDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +25,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/download")
 public class DownloadController {
-	static PhotoDAO photoDAO = Application.context.getBean("PhotoDAO", PhotoDAO.class);
-	static AccountDAO accountDAO = Application.context.getBean("AccountDAO", AccountDAO.class);
+
+	@Autowired
+	private PhotoDAO photoDAO;
+
+	@Autowired
+	private AccountDAO accountDAO;
+
+	@Value("${photo.dir}")
+	private String photoDir;
+
+	@Value("${avatar.dir}")
+	private String avatarDir;
+
+	@Value("${story.dir}")
+	private String storyDir;
 
 	@GetMapping("/photo/{filename}.{ext}")
 	byte[] getPhoto(HttpServletResponse response, @PathVariable("filename") String filename,
@@ -33,7 +47,7 @@ public class DownloadController {
 		filename += "." + ext;
 		response.setContentType(MediaType.IMAGE_JPEG_VALUE);
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + ".jpg\"");
-		InputStream inputStream = new FileInputStream(Config.getConfig("photo.dir") + File.separator + filename);
+		InputStream inputStream = new FileInputStream(photoDir + File.separator + filename);
 		BufferedImage img = ImageIO.read(inputStream);
 		ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
 		ImageIO.write(img, "jpg", byteStream);
@@ -47,7 +61,7 @@ public class DownloadController {
 		filename += "." + ext;
 		response.setContentType(MediaType.IMAGE_JPEG_VALUE);
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + ".jpg\"");
-		InputStream inputStream = new FileInputStream(Config.getConfig("avatar.dir") + File.separator + filename);
+		InputStream inputStream = new FileInputStream(avatarDir + File.separator + filename);
 		BufferedImage img = ImageIO.read(inputStream);
 		ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
 		ImageIO.write(img, "jpg", byteStream);
@@ -62,7 +76,7 @@ public class DownloadController {
 		if (accountDAO.checkPrivilege(username, photoDAO.getUsernameWithStoryFilename(filename))) {
 			response.setContentType(MediaType.IMAGE_JPEG_VALUE);
 			response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + ".jpg\"");
-			InputStream inputStream = new FileInputStream(Config.getConfig("story.dir") + File.separator + filename);
+			InputStream inputStream = new FileInputStream(storyDir + File.separator + filename);
 			BufferedImage img = ImageIO.read(inputStream);
 			ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
 			ImageIO.write(img, "jpg", byteStream);
