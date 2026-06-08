@@ -1,7 +1,7 @@
 package org.ititandev.service;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.Authentication;
 
@@ -11,7 +11,7 @@ public interface TokenAuthenticationService {
 	 * When a user successfully logs into the application, create a token for that user.
 	 * 
 	 * @param res		An http response that will be filled with an 'Authentication' header containing the token.
-	 * @param username	The username mapped to the user.
+	 * @param authentication	The username mapped to the user.
 	 */
 	void addAuthentication(HttpServletResponse res, Authentication authentication);
 

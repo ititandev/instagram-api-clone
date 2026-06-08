@@ -2,22 +2,26 @@ package org.ititandev.service;
 
 import java.util.Properties;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.AddressException;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-import org.ititandev.config.Config;
-
+@Service
 public class MailService {
-	public static void sendMail(String _to, String subject, String body, String from, String pass) {
-		if (from == null)
-			from = Config.getConfig("mail.username");
-		if (pass == null)
-			pass = Config.getConfig("mail.password");
+
+	@Value("${mail.username}")
+	private String mailUsername;
+
+	@Value("${mail.password}")
+	private String mailPassword;
+
+	public void sendMail(String _to, String subject, String body, String from, String pass) {
 		String[] to = { _to };
 		Properties props = System.getProperties();
 		String host = "smtp.gmail.com";
@@ -56,7 +60,7 @@ public class MailService {
 		}
 	}
 
-	public static void sendMail(String to, String subject, String body) {
-		sendMail(to, subject, body, Config.getConfig("mail.username"), Config.getConfig("mail.password"));
+	public void sendMail(String to, String subject, String body) {
+		sendMail(to, subject, body, mailUsername, mailPassword);
 	}
 }

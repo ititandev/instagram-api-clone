@@ -6,14 +6,18 @@ import javax.sql.DataSource;
 
 import org.ititandev.mapper.CommentMapper;
 import org.ititandev.model.Comment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CommentDAO {
-	@SuppressWarnings("unused")
-	private DataSource dataSource;
-	private JdbcTemplate jdbcTemplate;
 
-	public void setDataSource(DataSource dataSource) {
+	private final DataSource dataSource;
+	private final JdbcTemplate jdbcTemplate;
+
+	@Autowired
+	public CommentDAO(DataSource dataSource) {
 		this.dataSource = dataSource;
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}

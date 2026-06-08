@@ -7,18 +7,19 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.ititandev.Application;
-import org.ititandev.config.Config;
 import org.ititandev.dao.AccountDAO;
 import org.ititandev.model.Account;
 import org.ititandev.model.User;
 import org.ititandev.security.TokenHandler;
 import org.ititandev.service.MailService;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -32,23 +33,36 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AccountController {
-	static AccountDAO accountDAO = Application.context.getBean("AccountDAO", AccountDAO.class);
+
+	@Autowired
+	private AccountDAO accountDAO;
+
+	@Autowired
+	private MailService mailService;
 
 	@GetMapping("/")
 	public String root() {
 		return "Welcome to Instagram API Clone\nIt's for android app to use.";
 	}
 
+	@Value("${mail.verify.path1}")
+	private String mailVerifyPath1;
+
+	@Value("${mail.verify.path2}")
+	private String mailVerifyPath2;
+
+	@Value("${hostname}")
+	private String hostname;
+
 	@PostMapping("/signup")
 	public Object signUp(HttpServletRequest request, HttpServletResponse response, @RequestBody String body)
-			throws IOException, JSONException {
-		JSONObject json = new JSONObject(body);
+			throws IOException {
+		JsonNode json = new ObjectMapper().readTree(body);
 		response.setContentType("application/json");
 		int result = 0;
 		try {
 			// BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
-			result = accountDAO.insert(json.getString("username"), json.getString("password"), json.getString("email"),
-					json.getString("name"));
+			result = accountDAO.insert(json.get("username").asText(), json.get("password").asText(), json.get("email").asText(), json.get("name").asText());
 			// int result = accountDAO.insert(json.getString("username"),
 			// bcrypt.encode(json.getString("password")), json.getString("email"),
 			// json.getString("name"));
@@ -56,13 +70,11 @@ public class AccountController {
 			return "Username existed";
 		}
 		if (result == 1) {
-			String body1 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path1"))),
-					StandardCharsets.UTF_8);
-			String body2 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path2"))),
-					StandardCharsets.UTF_8);
-			String verify = accountDAO.getVerifyLink(json.getString("username"));
-			String email = accountDAO.getEmail(json.getString("username"));
-			MailService.sendMail(email, "Instagram: Verify account", body1 + verify + body2);
+			String body1 = new String(Files.readAllBytes(Paths.get(mailVerifyPath1)), StandardCharsets.UTF_8);
+			String body2 = new String(Files.readAllBytes(Paths.get(mailVerifyPath2)), StandardCharsets.UTF_8);
+			String verify = accountDAO.getVerifyLink(json.get("username").asText(), hostname);
+			String email = accountDAO.getEmail(json.get("username").asText());
+			mailService.sendMail(email, "Instagram: Verify account", body1 + verify + body2);
 			return "true";
 		}
 
@@ -72,13 +84,11 @@ public class AccountController {
 
 	@GetMapping("/verify/resend/{username}")
 	public String resend(@PathVariable("username") String username) throws IOException {
-		String body1 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path1"))),
-				StandardCharsets.UTF_8);
-		String body2 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path2"))),
-				StandardCharsets.UTF_8);
-		String verify = accountDAO.getVerifyLink(username);
+		String body1 = new String(Files.readAllBytes(Paths.get(mailVerifyPath1)), StandardCharsets.UTF_8);
+		String body2 = new String(Files.readAllBytes(Paths.get(mailVerifyPath2)), StandardCharsets.UTF_8);
+		String verify = accountDAO.getVerifyLink(username, hostname);
 		String email = accountDAO.getEmail(username);
-		MailService.sendMail(email, "Instagram: Verify account", body1 + verify + body2);
+		mailService.sendMail(email, "Instagram: Verify account", body1 + verify + body2);
 		return "done";
 	}
 
@@ -94,13 +104,13 @@ public class AccountController {
 	}
 
 	@PutMapping("/account/updateInfo")
-	public String updateInfo(HttpServletRequest request, @RequestBody String body) throws IOException, JSONException {
+	public String updateInfo(HttpServletRequest request, @RequestBody String body) throws IOException {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-		JSONObject json = new JSONObject(body);
+		JsonNode json = new ObjectMapper().readTree(body);
 		Account account = new Account();
-		account.setUsername(json.getString("username"));
-		account.setEmail(json.getString("email"));
-		account.setName(json.getString("name"));
+		account.setUsername(json.get("username").asText());
+		account.setEmail(json.get("email").asText());
+		account.setName(json.get("name").asText());
 
 		if (accountDAO.updateInfo(username, account) == 1)
 			return "{\"result\":\"success\"}";
@@ -109,15 +119,15 @@ public class AccountController {
 	}
 
 	@PutMapping("/account/updatePassword")
-	public String updatePassword(HttpServletRequest request) throws JSONException, IOException {
+	public String updatePassword(HttpServletRequest request) throws IOException {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		StringBuffer buffer = new StringBuffer();
 		String line = null;
 		BufferedReader reader = request.getReader();
 		while ((line = reader.readLine()) != null)
 			buffer.append(line);
-		JSONObject json = new JSONObject(buffer.toString());
-		if (accountDAO.updatePassword(username, json.getString("password")) == 1)
+		JsonNode json = new ObjectMapper().readTree(buffer.toString());
+		if (accountDAO.updatePassword(username, json.get("password").asText()) == 1)
 			return "{\"result\":\"success\"}";
 		else
 			return "{\"result\":\"error\"}";
@@ -138,13 +148,11 @@ public class AccountController {
 		response.addHeader(tokenHandler.HEADER_STRING, tokenHandler.TOKEN_PREFIX + " " + JWT);
 		String check = accountDAO.checkVerify(username);
 		if (check.equals("false")) {
-			String body1 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path1"))),
-					StandardCharsets.UTF_8);
-			String body2 = new String(Files.readAllBytes(Paths.get(Config.getConfig("mail.verify.path2"))),
-					StandardCharsets.UTF_8);
-			String verify = accountDAO.getVerifyLink(username);
+			String body1 = new String(Files.readAllBytes(Paths.get(mailVerifyPath1)), StandardCharsets.UTF_8);
+			String body2 = new String(Files.readAllBytes(Paths.get(mailVerifyPath2)), StandardCharsets.UTF_8);
+			String verify = accountDAO.getVerifyLink(username, hostname);
 			String email = accountDAO.getEmail(username);
-			MailService.sendMail(email, "Instagram: Verify account", body1 + verify + body2);
+			mailService.sendMail(email, "Instagram: Verify account", body1 + verify + body2);
 		}
 		return check;
 	}

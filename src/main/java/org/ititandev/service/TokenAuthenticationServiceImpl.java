@@ -2,8 +2,8 @@ package org.ititandev.service;
 
 import static java.util.Collections.emptyList;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.ititandev.security.TokenHandler;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

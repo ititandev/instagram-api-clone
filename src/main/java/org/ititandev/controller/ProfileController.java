@@ -4,6 +4,7 @@ import org.ititandev.Application;
 import org.ititandev.dao.AccountDAO;
 import org.ititandev.dao.PhotoDAO;
 import org.ititandev.model.ProfilePage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,8 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ProfileController {
-	static PhotoDAO photoDAO = Application.context.getBean("PhotoDAO", PhotoDAO.class);
-	static AccountDAO accountDAO = Application.context.getBean("AccountDAO", AccountDAO.class);
+
+	@Autowired
+	private PhotoDAO photoDAO;
+
+	@Autowired
+	private AccountDAO accountDAO;
 
 	@GetMapping("/profile/{username}")
 	public ProfilePage getUserPage(@PathVariable("username") String username) {

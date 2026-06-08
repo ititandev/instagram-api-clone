@@ -5,6 +5,10 @@ import java.util.UUID;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
+
+import javax.crypto.SecretKey;
 
 public class TokenHandler {
 	
@@ -36,13 +40,18 @@ public class TokenHandler {
 	public String parse(String token) {
 		
 		String username = Jwts.parser()
-				  		  	  .setSigningKey(SECRET)
-				  		  	  .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
-				  		  	  .getBody()
+				  		  	  .verifyWith(getSecretKey(SECRET))
+							  .build()
+				  		  	  .parseSignedClaims(token.replace(TOKEN_PREFIX, ""))
+				  		  	  .getPayload()
 				  		  	  .getSubject();
 		
 		return username;
 		
+	}
+
+	public SecretKey getSecretKey(String secret) {
+		return Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret));
 	}
 
 }

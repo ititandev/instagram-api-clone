@@ -14,17 +14,21 @@ import org.ititandev.mapper.UserPageMapper;
 import org.ititandev.model.Photo;
 import org.ititandev.model.ProfilePage;
 import org.ititandev.model.Story;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class PhotoDAO {
-	@SuppressWarnings("unused")
-	private DataSource dataSource;
-	private JdbcTemplate jdbcTemplate;
 
-	public void setDataSource(DataSource dataSource) {
+	private final DataSource dataSource;
+	private final JdbcTemplate jdbcTemplate;
+
+	@Autowired
+	public PhotoDAO(DataSource dataSource) {
 		this.dataSource = dataSource;
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}

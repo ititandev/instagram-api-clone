@@ -6,14 +6,18 @@ import org.ititandev.mapper.ProfileMapper;
 import org.ititandev.mapper.SettingMapper;
 import org.ititandev.model.Profile;
 import org.ititandev.model.Setting;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ProfileDAO {
-	@SuppressWarnings("unused")
-	private DataSource dataSource;
-	private JdbcTemplate jdbcTemplate;
 
-	public void setDataSource(DataSource dataSource) {
+	private final DataSource dataSource;
+	private final JdbcTemplate jdbcTemplate;
+
+	@Autowired
+	public ProfileDAO(DataSource dataSource) {
 		this.dataSource = dataSource;
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}

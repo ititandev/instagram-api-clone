@@ -11,6 +11,7 @@ import org.ititandev.model.Comment;
 import org.ititandev.model.Photo;
 import org.ititandev.model.Reply;
 import org.ititandev.model.Story;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,10 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PhotoController {
-	static PhotoDAO photoDAO = Application.context.getBean("PhotoDAO", PhotoDAO.class);
-	static CommentDAO commentDAO = Application.context.getBean("CommentDAO", CommentDAO.class);
-	static ReplyDAO replyDAO = Application.context.getBean("ReplyDAO", ReplyDAO.class);
-	static AccountDAO accountDAO = Application.context.getBean("AccountDAO", AccountDAO.class);
+
+	@Autowired
+	private PhotoDAO photoDAO;
+
+	@Autowired
+	private CommentDAO commentDAO;
+
+	@Autowired
+	private ReplyDAO replyDAO;
+
+	@Autowired
+	private AccountDAO accountDAO;
 
 	@GetMapping("/newfeed/{start}/{limit}")
 	public List<Photo> getNewfeed(@PathVariable("start") int start, @PathVariable("limit") int limit) {
